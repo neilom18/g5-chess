@@ -50,9 +50,13 @@ Site https://www.entra21.com.br/
 
 [![N|Solid](https://imgur.com/DEqLHqH.gif)
 
+<<<<<<< HEAD
 BY:RODRIGO ALVES / Leandro Pamplona.
 
 
 
 ## by teacher... 
 - Possibilidade de desafiar pessoas a uma partida.
+=======
+BY:Rodrigo Alves / Leandro Pamplona.
+>>>>>>> 9549e7f720df31f61d1aef2e105cfb1efe91ffe1
