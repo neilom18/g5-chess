@@ -1,5 +1,5 @@
 # ♟ Projeto entra21 ♟
-[![N|Solid](https://img.shields.io/npm/l/react)](https://github.com/Rodrigo5572/chess-entra-21-rodrigo/blob/main/LICENSE)
+[![N|Solid](https://img.shields.io/npm/l/react)](https://github.com/neilom18/g5-chess/blob/main/LICENSE)
 ## O que é? 
 🕹 É um game de xadrez desenvolvido em .PY com multijogador 🕹
 
@@ -39,3 +39,5 @@ Site https://www.entra21.com.br/
 
 
 [![N|Solid](https://imgur.com/DEqLHqH.gif)
+
+BY:RODRIGO ALVES
