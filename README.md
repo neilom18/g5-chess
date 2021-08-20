@@ -3,6 +3,9 @@
 ## O que é? 
 🕹 É um game de xadrez desenvolvido em .PY com multijogador 🕹
 
+## Status:
+Em desenvolvimento
+
 ## Projeto feito por : 
   Rodrigo
   
@@ -13,6 +16,10 @@
   Haziel
  
 ## Projeto com intuito educacional 
+
+## Conteúdos:
+- Regras do Jogo.
+- Possibilidade de desafiar pessoas a uma partida.
 
 ## 👨‍💻 Cargos da equipe :
 Lider - Alessandro
@@ -40,4 +47,4 @@ Site https://www.entra21.com.br/
 
 [![N|Solid](https://imgur.com/DEqLHqH.gif)
 
-BY:RODRIGO ALVES
+BY:RODRIGO ALVES / Leandro Pamplona.
