@@ -19,7 +19,10 @@ Em desenvolvimento
 
 ## Conteúdos:
 - Regras do Jogo.
-- Possibilidade de desafiar pessoas a uma partida.
+- Jogabilidade 
+- Controles
+- Propaganda Marketing digital
+
 
 ## 👨‍💻 Cargos da equipe :
 Lider - Alessandro
@@ -48,3 +51,8 @@ Site https://www.entra21.com.br/
 [![N|Solid](https://imgur.com/DEqLHqH.gif)
 
 BY:RODRIGO ALVES / Leandro Pamplona.
+
+
+
+## by teacher... 
+- Possibilidade de desafiar pessoas a uma partida.
