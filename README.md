@@ -47,4 +47,4 @@ Site https://www.entra21.com.br/
 
 [![N|Solid](https://imgur.com/DEqLHqH.gif)
 
-BY:RODRIGO ALVES / Leandro Pamplona.
+BY:Rodrigo Alves / Leandro Pamplona.
