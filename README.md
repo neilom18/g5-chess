@@ -87,8 +87,4 @@ Em desenvolvimento
 
 [![N|Solid](https://imgur.com/DEqLHqH.gif)](https://github.com/neilom18/g5-chess/blob/main/README.md)
 
-### Tabela de Conteúdos
-   * [Nome do tópico visivel](#nome-do-tópico)
-
-
 
