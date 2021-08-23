@@ -3,60 +3,92 @@
 ## O que é? 
 🕹 É um game de xadrez desenvolvido em .PY com multijogador 🕹
 
-## Status:
+## 🟢 Status:
 Em desenvolvimento
 
-## Projeto feito por : 
-  Rodrigo
+## 👨‍💼 Projeto feito por: 👨‍💼 
+- **Rodrigo**
   
-  Alessandro
+-  **Alessandro**
   
-  Leandro
+-  **Leandro**
   
-  Haziel
+-  **Haziel**
  
-## Projeto com intuito educacional 
+## 👨‍🏫 Projeto com intuito educacional 👨‍🎓
 
 ## Conteúdos:
-- Regras do Jogo.
-- Jogabilidade 
-- Controles
-- Propaganda Marketing digital
+- **Regras do Jogo**
+- **Jogabilidade**
+- **Controles**
+- **Propaganda Marketing digital**
 
 
-## 👨‍💻 Cargos da equipe :
-Lider - Alessandro
+## 👨‍💻 Cargos da equipe:
+- Lider **Alessandro**
 
-DBA - Leandro
+- DBA **Leandro**
 
-Design - Haziel
+- Design **Haziel**
 
-Segurança - Leandro
+- Segurança **leandro**
 
-Conteudo - Rodrigo
+- Conteúdo **Rodrigo**
 
-Documentação - Haziel
+- Documentação **Haziel**
 
-Testes - Rodrigo / Alessandro
+## 💻 Pré-requisitos:
+- Ainda nao definido
+
+## 🔧 Linguagem programada Dependências e Libs Instaladas: 
+- Python 
+
+![NSolid](https://imgur.com/U9mLVjS.png)
+
+## 🚦 Como rodar a aplicação:
+- Ainda nao definido
+
+## 🚥 Como rodar os testes:
+- Ainda nao definido
+
+## 🗂 Database:
+- Ainda nao definido
+
+## 🩺 Solução de problemas:
+- Ainda nao definido
+
+## 👨‍💻 Contribuintes:
+- Entra21 blusoft
+- Proway
+
+## 🗓 Tarefas em aberto:
+- Front-end
+- deixar o modo multiplayer 100%
+
 
 ## Redes Sociais Entra21
 
-Instagram https://www.instagram.com/entra21.blusoft/
+[<img src="https://imgur.com/x05Sa7O.png" width=115 > <br> <sub> Instagram </sub>](https://www.instagram.com/entra21.blusoft/) | [<img src="https://imgur.com/b3Q0EjI.png" width=115 > <br> <sub> Facebook </sub>](https://www.facebook.com/entra21.blusoft) | [<img src="https://imgur.com/70aSGri.png" width=115 > <br> <sub> Site </sub>](https://www.entra21.com.br/) |
+| :---: | :---: | :---: |
 
-Facebook https://www.facebook.com/entra21.blusoft
+- **Instagram:**
 
-Site https://www.entra21.com.br/
+[![N|Solid](https://imgur.com/x05Sa7O.png)](https://www.instagram.com/entra21.blusoft/)
+
+- **Facebook:**
+
+[![N|Solid](https://imgur.com/b3Q0EjI.png)](https://www.facebook.com/entra21.blusoft) 
+
+- **site:**
+
+[![N|Solid](https://imgur.com/70aSGri.png)](https://www.entra21.com.br/)  
+
+- **imagem demonstrativa sobre o jogo**
+
+[![N|Solid](https://imgur.com/DEqLHqH.gif)](https://github.com/neilom18/g5-chess/blob/main/README.md)
+
+### Tabela de Conteúdos
+   * [Nome do tópico visivel](#nome-do-tópico)
 
 
-[![N|Solid](https://imgur.com/DEqLHqH.gif)
 
-<<<<<<< HEAD
-BY:RODRIGO ALVES / Leandro Pamplona.
-
-
-
-## by teacher... 
-- Possibilidade de desafiar pessoas a uma partida.
-=======
-BY:Rodrigo Alves / Leandro Pamplona.
->>>>>>> 9549e7f720df31f61d1aef2e105cfb1efe91ffe1
