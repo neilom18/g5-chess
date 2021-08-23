@@ -40,7 +40,7 @@ Em desenvolvimento
 ## 💻 Pré-requisitos:
 - Ainda nao definido
 
-## 🔧 Linguagem programada Dependências e Libs Instaladas: 
+## 🔧 Linguagem programada, Dependências e Libs Instaladas: 
 - Python 
 
 ![NSolid](https://imgur.com/U9mLVjS.png)
