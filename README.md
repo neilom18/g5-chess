@@ -38,18 +38,55 @@ Em desenvolvimento
 - Documentação **Haziel**
 
 ## 💻 Pré-requisitos:
-- Ainda nao definido
+- **0 Servidor de Internet**
+
+- **0.1 Linux: Ubuntu 20.04.2 LTS (Focal Fossa)**
+
+- **1 Python**
+
+- **1.1 Python versão Python 3.8.10**
+
+- **2 Django**
+ 
+- **2.1 django-admin --version : 3.2.6**
+ 
+- **3 Myql | Postgre | Oracle**
 
 ## 🔧 Linguagem programada, Dependências e Libs Instaladas: 
 - Python 
 
 ![NSolid](https://imgur.com/U9mLVjS.png)
 
+- Trasnferencia de arquivos grandes
+
+![Nsolid](https://imgur.com/l73fcO8.png)
+
+- Conexao com o banco de dados
+
+![Nsolid](https://imgur.com/MSG8mGw.png)
+
+- Bibliteca de Syncronismo de Banco de dados na nuvem
+
+![Nsolid](https://imgur.com/feB6bM3.png)
+
 ## 🚦 Como rodar a aplicação:
-- Ainda nao definido
+- **Servidor na Nuvem com acesso WEB | 8000 funcionando ou porta 443.** 
+
+- **serviços do python + Django + xxxx funcionando.**
+
+- **Para executar o sistema faça login com o usuario XXX. no endereço de ip 200.200.200.200 e vá para a pasta \usr\local\appX**
+
+- **faça login com Adminstrador local do windows e vá para o diretorio c:\documentos\xxxx\sss**
+
+- **execute o comando: xxxx**
 
 ## 🚥 Como rodar os testes:
-- Ainda nao definido
+- **Instalar o github client**
+- **Baixar o repositorio x**
+- **Baixar todas as dependencias e bibliotecas descritas anteriomente**
+- **Baixar uma copia do banco de dados e importar com os comandos ....**
+- **Va para o diretorio X e execute : xxx**
+- **Abra o Chrome e o endereço http://localhost:8000/aplicativoX**
 
 ## 🗂 Database:
 - Ainda nao definido
@@ -60,6 +97,13 @@ Em desenvolvimento
 ## 👨‍💻 Contribuintes:
 - Entra21 blusoft
 - Proway
+- Ambev Tech
+- Datainfo
+- Capgemini
+- Senior
+- Serasa
+- T-Systems
+- ThoughtWorks
 
 ## 🗓 Tarefas em aberto:
 - Front-end
