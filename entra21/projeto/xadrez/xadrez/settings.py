@@ -53,7 +53,7 @@ ROOT_URLCONF = 'xadrez.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,5 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #comentário teste
 
 #comentário 2
+SECRET_KEY = 'django-insecure-ryd%zs#4lshl))xhosjv4lg+u8k!yo=lla3--+_x-j4^@-va02'
 
-
+#teste
