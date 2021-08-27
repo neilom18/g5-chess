@@ -13,8 +13,10 @@ Em desenvolvimento
   
 -  **Leandro**
   
--  **Haziel**
- 
+-  **Abdiel**
+
+-  **Naruê**
+
 ## 👨‍🏫 Projeto com intuito educacional 👨‍🎓
 
 ## Conteúdos:
