@@ -1,0 +1,19 @@
+body {
+    margin:0;
+    background-color: rgb(107, 107, 107);
+}
+header {
+    padding: 10px;
+    font-size: 200%;
+    width: 100%;
+    background-color: rgb(68, 68, 68);
+    border-bottom:4px solid rgb(20, 20, 20);
+}
+.tap {
+    width: 10%;
+    height: 50px;
+    margin: 100px;
+	padding: 15px;
+			
+        
+}
