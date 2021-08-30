@@ -19,5 +19,8 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('main.urls', namespace = 'main'))
+    path('',include('main.urls', namespace = 'main')),
+    #Usuários
+    path("accounts/", include("allauth.urls")),
+    #Usuários
 ]
