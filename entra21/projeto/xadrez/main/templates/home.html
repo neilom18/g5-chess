@@ -23,12 +23,32 @@
 			padding: 15px;
             background-color: rgb(120, 120, 110);
         }
+        .container_off {
+            margin:19%;
+            margin-top: 10%;
+            font-size: 250%;
+        }
+        .off {
+            font-size: 200%;
+            
+        }
+        .entrar {
+            text-decoration: none;
+            color: black;
+        }
     </style>
     </head>
     <body>
         <header>Usuário</header>
-        <button type="button", class='tap'>Criar Sala</button>
-        <button type="button", class='tap'>Entrar em salas</button>
+        {% if user.is_authenticated %}
+            <button type="button", class='tap'>Criar Sala</button>
+            <button type="button", class='tap'>Entrar em salas</button>
+        {% else %}
+            <div class="container_off">
+                <h1 class="off">Você está deconectado</h1>
+                <a class="entrar" href="{% url 'account_login' %}">Entrar</a>
+            </div>
+        {% endif %}
     </body>
 
 </html>
