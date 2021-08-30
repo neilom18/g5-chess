@@ -35,6 +35,10 @@ Em desenvolvimento
 
 - Segurança **leandro**
 
+- Banco de Dados **Narue e Alessandro**
+
+- Front **Leandro e Abdiel**
+
 - Conteúdo **Rodrigo**
 
 - Documentação **Haziel**
