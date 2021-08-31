@@ -10,5 +10,5 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserCreationForm
     model = User
     fieldsets = auth_admin.UserAdmin.fieldsets + (
-        ("Extras", {"fields":("país",)}),
+        ("Extras", {"fields":("pais",)}),
     )
