@@ -22,17 +22,18 @@
             background-color: rgb(120, 120, 110);
         }
         .container_off {
-            margin:19%;
-            margin-top: 10%;
+            margin:10%;
+            margin-top: 5%;
             font-size: 350%;
+            text-align: center;
         }
         .off {
-            font-size: 200%;
+            font-size: 150%;
         }
         .entrar {
             text-decoration: none;
             color: black;
-            margin-left: 10%;
+            
         }
         .title {
             padding: 10px;
@@ -44,6 +45,14 @@
             padding-top: 1px;
             color:black;
             font-size:200%
+        }
+        #msg {
+            font-size: 40%;
+            margin-bottom: 0%;
+        }
+        .cadastro {
+            font-size: 50%;
+           
         }
     </style>
     </head>
@@ -58,10 +67,15 @@
         {% if user.is_authenticated %}
             <button type="button", class='tap'>Criar Sala</button>
             <button type="button", class='tap'>Entrar em salas</button>
+            <a href="sala">Retirar depois</a>
+            <p>{{User.name}}</p>
         {% else %}
             <div class="container_off">
-                <h1 class="off">Você está deconectado</h1>
+                <h1 class="off">Você está desconectado</h1>
                 <a class="entrar" href="{% url 'account_login' %}">Entrar</a>
+                <p id="msg">Não tem uma conta ainda?</p>
+                <a class="cadastro" href="{% url 'account_signup'%}">Cadastre-se</a>
+                
             </div>
         {% endif %}
     </body>
