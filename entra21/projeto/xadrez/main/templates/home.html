@@ -10,8 +10,6 @@
             background-color: rgb(107, 107, 107);
         }
         header {
-            padding: 10px;
-            font-size: 200%;
             width: 100%;
             background-color: rgb(68, 68, 68);
             border-bottom:4px solid rgb(20, 20, 20);
@@ -26,20 +24,37 @@
         .container_off {
             margin:19%;
             margin-top: 10%;
-            font-size: 250%;
+            font-size: 350%;
         }
         .off {
             font-size: 200%;
-            
         }
         .entrar {
             text-decoration: none;
             color: black;
+            margin-left: 10%;
+        }
+        .title {
+            padding: 10px;
+            font-size: 300%;
+        }
+        .sair {
+            text-decoration: none;
+            margin-left: 70%;
+            padding-top: 1px;
+            color:black;
+            font-size:200%
         }
     </style>
     </head>
     <body>
-        <header>Usuário</header>
+        <header>
+            <span class="title">Chess</span>
+            {% if user.is_authenticated %}
+            <a class="sair" href="{% url 'account_logout' %}">Sair</a>
+            {% else %}
+            {% endif %}
+        </header>
         {% if user.is_authenticated %}
             <button type="button", class='tap'>Criar Sala</button>
             <button type="button", class='tap'>Entrar em salas</button>
