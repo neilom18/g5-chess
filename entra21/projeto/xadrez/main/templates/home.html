@@ -38,6 +38,8 @@
         .title {
             padding: 10px;
             font-size: 300%;
+            text-decoration: none;
+            color: black;
         }
         .sair {
             text-decoration: none;
@@ -58,7 +60,7 @@
     </head>
     <body>
         <header>
-            <span class="title">Chess</span>
+            <a class="title" href="/">Chess</a>
             {% if user.is_authenticated %}
             <a class="sair" href="{% url 'account_logout' %}">Sair</a>
             {% else %}
