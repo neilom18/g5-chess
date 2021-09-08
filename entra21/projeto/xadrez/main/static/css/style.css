@@ -1,0 +1,51 @@
+body {
+    margin:0;
+    background-color: rgb(107, 107, 107);
+}
+header {
+    width: 100%;
+    background-color: rgb(68, 68, 68);
+    border-bottom:4px solid rgb(20, 20, 20);
+}
+.tap {
+    width: 10%;
+    height: 50px;
+    margin: 100px;
+    padding: 15px;
+    background-color: rgb(120, 120, 110);
+}
+.container_off {
+    margin:10%;
+    margin-top: 5%;
+    font-size: 350%;
+    text-align: center;
+}
+.off {
+    font-size: 150%;
+}
+.entrar {
+    text-decoration: none;
+    color: black;
+    
+}
+.title {
+    padding: 10px;
+    font-size: 300%;
+    text-decoration: none;
+    color: black;
+}
+.sair {
+    text-decoration: none;
+    margin-left: 70%;
+    padding-top: 1px;
+    color:black;
+    font-size:200%
+}
+#msg {
+    font-size: 40%;
+    margin-bottom: 0%;
+}
+.cadastro {
+    font-size: 50%;
+   
+}

@@ -69,8 +69,9 @@
         {% if user.is_authenticated %}
             <button type="button", class='tap'>Criar Sala</button>
             <button type="button", class='tap'>Entrar em salas</button>
-            <a href="sala">Retirar depois</a>
-            <p>{{User.name}}</p>
+            <a href="sala">Temporário</a>
+            <a href="lista_salas">Lista de salas</a>
+            {{User.name}}
         {% else %}
             <div class="container_off">
                 <h1 class="off">Você está desconectado</h1>
