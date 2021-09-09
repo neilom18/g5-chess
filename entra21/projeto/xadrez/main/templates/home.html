@@ -68,9 +68,9 @@
         </header>
         {% if user.is_authenticated %}
             <button type="button", class='tap'>Criar Sala</button>
-            <button type="button", class='tap'>Entrar em salas</button>
+            <a href="lista_salas"><button type="button", class='tap'>Entrar em salas</button></a>
             <a href="sala">Temporário</a>
-            <a href="lista_salas">Lista de salas</a>
+            
             {{User.name}}
         {% else %}
             <div class="container_off">
