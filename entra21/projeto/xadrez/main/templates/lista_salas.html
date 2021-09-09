@@ -1,7 +1,33 @@
-{% extends "base.html" %}
-
-{%block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style> 
+            body {
+                margin:0;
+                background-color: rgb(107, 107, 107);
+            }
+            header {
+                width: 100%;
+                background-color: rgb(68, 68, 68);
+                border-bottom:4px solid rgb(20, 20, 20);
+            }
+            .title {
+                padding: 10px;
+                font-size: 300%;
+                text-decoration: none;
+                color: black;
+            }
+        </style> 
+    </head>
+    <body>
+        <header>
+            <a class="title" href="/">Chess</a>
+        </header>
+        oi
         {% for sala in salas%}
             {{sala.code}}
         {% endfor %}
-{% endblock %}
+    </body>
