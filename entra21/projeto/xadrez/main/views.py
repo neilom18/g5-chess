@@ -13,6 +13,7 @@ def sala(request):
 def historico(request):
     return render(request, 'historico.html')
 
+
 def random_code():
     r = []
     for i in range(9):
