@@ -14,10 +14,4 @@ def historico(request):
     return render(request, 'historico.html')
 
 
-def random_code():
-    r = []
-    for i in range(9):
-        i = random.randint(0,9)
-        r.append(i)
-    r_code = ''.join(map(str, r))
-    return r_code
+
