@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #apps adicionais
+    'rest_framework',
     'main.apps.MainConfig',
     "django.contrib.sites",
     "allauth",
