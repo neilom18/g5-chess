@@ -5,19 +5,19 @@
     <title>{% block title %} {% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
     
     
 </head>
-<body>
+<body bg-color:#00008B;>
     <p> Barra de navegação</p>
 
     
-		<div class="w3-sidebar w3-bar-block" style="width:25%; background-color:#00008B;">
-			{% block content %}
-			{% endblock %}
-		</div>
+
+
+       
     <p> Rodapé da página</p>
 </body>
 </html>
