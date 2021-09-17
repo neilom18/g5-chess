@@ -1,13 +1,10 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from .import views
-
-class User(AbstractUser):
-    pais = models.CharField(max_length=100, blank=True,default='')
+import datetime
 
 class Sala(models.Model):
-    code = models.CharField(max_length=9,default="",unique=True)
-    user = models.ForeignKey(User, related_name = 'user', null = False, on_delete = models.CASCADE)
+    code = models.CharField(max_length=9, default="0",unique=True)
+    d_criacao = models.DateTimeField(auto_now_add=True)
 
     def sala_code(self):
         return self.code
@@ -15,3 +12,10 @@ class Sala(models.Model):
     def __str__(self):
         return self.code
 
+class User(AbstractUser):
+    pais = models.CharField(max_length=100, blank=True,default='')
+    
+    sala = models.ForeignKey(Sala, related_name = 'sala', null=True, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.sala
