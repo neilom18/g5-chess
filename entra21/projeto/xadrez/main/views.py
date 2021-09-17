@@ -13,5 +13,5 @@ def sala(request):
 def historico(request):
     return render(request, 'historico.html')
 
-
-
+def perfil(request):
+    return render(request, 'perfil.html')

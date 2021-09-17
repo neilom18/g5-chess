@@ -2,7 +2,7 @@ from django.urls import path
 from django.urls.conf import include
 from .import views
 from .views import *
-from rest_framework import routers, serializers, viewsets
+
 
 app_name = 'main'
 
@@ -11,6 +11,5 @@ urlpatterns = [
     path('lista_salas', views.lista_salas, name= 'lista_salas'),
     path('sala', views.sala, name = 'sala'),
     path('historico', views.historico, name = 'historico'),
-    
-    
+    path('perfil', views.perfil, name = 'perfil'),
 ]

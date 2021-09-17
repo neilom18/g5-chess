@@ -62,6 +62,7 @@
         <header>
             <a class="title" href="/">Chess</a>
             {% if user.is_authenticated %}
+            <a class='perfil' href="perfil">perfil</a>
             <a class="sair" href="{% url 'account_logout' %}">Sair</a>
             {% else %}
             {% endif %}
