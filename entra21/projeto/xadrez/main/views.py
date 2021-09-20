@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import random
-
+#Template request
 def home(request):
     return render(request, 'home.html')
 
@@ -15,8 +15,10 @@ def historico(request):
 
 def perfil(request):
     return render(request, 'perfil.html')
+#Template request
 
-def ramRoom():
+
+def ramCode():
     alph = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     r = []
     for i in range(16):
