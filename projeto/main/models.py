@@ -7,7 +7,7 @@ start = ' rwa1 cwb1 bwc1 qwd1 kwe1 bwf1 cwg1 rwh1 pwa2 pwb2 pwc2 pwd2 pwe2 pwf2 
 
 class Room(models.Model):
     code = models.CharField(max_length=10,default="",)
-    pieces = models.CharField(max_length=len(start), default=start)
+    pieces = models.CharField(max_length=len(start), blank=False,null=False, default=start)
 
 
 class Sala(models.Model):
