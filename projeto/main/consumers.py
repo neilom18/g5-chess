@@ -8,7 +8,9 @@ class RoomConsumer(WebsocketConsumer):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         self.Room,created = Room.objects.get_or_create(code=self.room_group_name)
-        
+        if(created):
+            print("novo")
+        print(self.Room.pieces)
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
@@ -16,7 +18,6 @@ class RoomConsumer(WebsocketConsumer):
         )
 
         self.accept()
-        print(self)
         self.start_game(self)
 
     def disconnect(self, close_code):
@@ -38,18 +39,22 @@ class RoomConsumer(WebsocketConsumer):
 
     def start_game(self,data):
         self.send(text_data=json.dumps({
+            'message':'game has been started',
             'piece':self.Room.pieces
         }))
 
-
+    def move_piece(self,data):
+        pieces = data['data']['pieces_value']
+        self.Room.pieces = pieces
+        self.Room.save()
     commands = {
         'chat_message':chat_message,
-        'start_game':start_game
+        'start_game':start_game,
+        'move_piece':move_piece,
     }
     # Receive message from WebSocket
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
         command = text_data_json['command']
         # Send message to room group
         async_to_sync(self.channel_layer.group_send)(
