@@ -11,4 +11,6 @@ urlpatterns = [
     path('historico', views.historico, name = 'historico'),
     path('perfil', views.perfil, name = 'perfil'),
     path('api/room',views.RoomView),
+    path('teste/',views.testeWS)
+
 ]

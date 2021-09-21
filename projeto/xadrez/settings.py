@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #apps adicionais
+    'channels',
     'rest_framework',
     'main.apps.MainConfig',
     "django.contrib.sites",
@@ -76,6 +77,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'xadrez.wsgi.application'
+ASGI_APPLICATION = 'xadrez.asgi.application'
+
 
 
 # Database
@@ -149,3 +152,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECRET_KEY = 'django-insecure-ryd%zs#4lshl))xhosjv4lg+u8k!yo=lla3--+_x-j4^@-va02'
 
 #teste
+
+#rest_framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}

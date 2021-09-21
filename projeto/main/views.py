@@ -29,3 +29,7 @@ def RoomView(request):
         return Response(serializer.data)
 
 
+def testeWS(request):
+    return render(request,'teste.html',context={'text':'hello world'})
+
+
