@@ -24,5 +24,6 @@ urlpatterns = [
     path('',include('main.urls', namespace = 'main')),
     #Usuários
     path("accounts/", include("allauth.urls")),
+
     #Usuários
 ]

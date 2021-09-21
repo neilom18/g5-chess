@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #apps adicionais
-    'rest_framework',
+    'channels',
     'main.apps.MainConfig',
     "django.contrib.sites",
     "allauth",
@@ -76,6 +76,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'xadrez.wsgi.application'
+ASGI_APPLICATION = 'xadrez.asgi.application'
+
+#channel layers para criar a conexão de grupos em um mesmo webscoket link, para não dar errado a aplicação sugiro comentar ou instalar o memurai
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND':'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts":[('127.0.0.1', 6379)],
+        },
+    },
+}
+
 
 
 # Database
@@ -149,3 +161,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECRET_KEY = 'django-insecure-ryd%zs#4lshl))xhosjv4lg+u8k!yo=lla3--+_x-j4^@-va02'
 
 #teste
+
+#rest_framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}

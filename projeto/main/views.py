@@ -1,5 +1,10 @@
 from django.shortcuts import render
+from .serializers import RoomSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Room
 import random
+
 #Template request
 def home(request):
     return render(request, 'home.html')
@@ -15,8 +20,15 @@ def historico(request):
 
 def perfil(request):
     return render(request, 'perfil.html')
-#Template request
 
+def homeWS(request):
+    return render(request,'homeWS.html')
+
+def room(request, room_name):
+    return render(request,'roomWS.html',{
+        'room_name': room_name
+    })
+#Template request
 
 def ramCode():
     alph = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
