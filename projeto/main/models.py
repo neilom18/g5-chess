@@ -2,8 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+start = ' rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 
-start = ' rw00 cw10 bw20 qw30 kw40 bw50 cw60 rw70 pw01 pw11 pw21 pw31 pw41 pw51 pw61 pw71 pb06 pb16 pb26 pb36 pb46 pb56 pb66 pb76 rb07 cb17 bb27 qb37 kb47 bb57 cb67 rb77'
 
 class Room(models.Model):
     code = models.CharField(max_length=10,default="",)
