@@ -21,15 +21,11 @@ def perfil(request):
     return render(request, 'perfil.html')
 #Template request
 
-#API
-@api_view(['GET','POST',])
-def RoomView(request):
-    if request.method =="GET":
-        serializer = RoomSerializer(Room.objects.all(), many=True)
-        return Response(serializer.data)
 
+def homeWS(request):
+    return render(request,'homeWS.html')
 
-def testeWS(request):
-    return render(request,'teste.html',context={'text':'hello world'})
-
-
+def room(request, room_name):
+    return render(request,'roomWS.html',{
+        'room_name': room_name
+    })

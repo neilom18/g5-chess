@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #apps adicionais
     'channels',
-    'rest_framework',
     'main.apps.MainConfig',
     "django.contrib.sites",
     "allauth",
@@ -78,6 +77,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'xadrez.wsgi.application'
 ASGI_APPLICATION = 'xadrez.asgi.application'
+
+#channel layers para criar a conexão de grupos em um mesmo webscoket link, para não dar errado a aplicação sugiro comentar ou instalar o memurai
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND':'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts":[('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 
