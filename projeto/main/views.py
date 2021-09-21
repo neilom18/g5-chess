@@ -1,5 +1,9 @@
 from django.shortcuts import render
-import random
+from .serializers import RoomSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Room
+
 #Template request
 def home(request):
     return render(request, 'home.html')
@@ -17,18 +21,11 @@ def perfil(request):
     return render(request, 'perfil.html')
 #Template request
 
+#API
+@api_view(['GET','POST',])
+def RoomView(request):
+    if request.method =="GET":
+        serializer = RoomSerializer(Room.objects.all(), many=True)
+        return Response(serializer.data)
 
-def ramCode():
-    alph = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    r = []
-    for i in range(16):
-        i = random.randint(1,2)
-        if i == 1:
-            n = random.randint(1,9)
-            r.append(n)
-        else:
-            a = random.choice(alph)
-            r.append(a)
-    r = ''.join(map(str, r))
-    return r
 
