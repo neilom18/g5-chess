@@ -15,5 +15,5 @@ class UserAdmin(auth_admin.UserAdmin):
 
 @admin.register(Sala)
 class SalaAdmin(admin.ModelAdmin):
-    list_display = ['code','d_criacao']
+    list_display = ['nome','d_criacao']
     
