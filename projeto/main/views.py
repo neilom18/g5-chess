@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .serializers import RoomSerializer
+from main.serializers import RoomSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Room
+
 import random
 
 #Template request
