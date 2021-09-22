@@ -2,10 +2,8 @@
 
 
 # esse start é simualdo não utilizar ele no oficial (possui peças deslocadas)
-start = 'pb72 pb70'
 
 from ConvertStringArray import arrayTostring, stringToArray
-start = stringToArray(start)
 
 
 def Pawn(allPieces,piece):
@@ -60,5 +58,3 @@ def Pawn(allPieces,piece):
 
                 
 
-
-print(Pawn(start,'pw61'))
