@@ -18,7 +18,3 @@ def arrayTostring(piecesArray):
                 piecesString += piece + ' '
     return piecesString
 
-
-teste = stringToArray(start)
-stringTeste = arrayTostring(teste)
-print(stringTeste)
