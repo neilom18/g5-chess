@@ -1,4 +1,3 @@
-import ConvertStringArray
 
 def torre(allPieces,piece):
     possibleMoves = []
@@ -52,8 +51,5 @@ def torre(allPieces,piece):
         else:
             break
         cont += 1
-    return possibleMoves
+        return possibleMoves
 
-teste = ConvertStringArray.stringToArray('rw22 rb42 rb12 rb26')
-
-print(torre(teste,'rw22'))
