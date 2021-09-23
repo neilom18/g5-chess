@@ -55,7 +55,8 @@ def bispo(allPieces,piece):
                 break
             cont+= 1
 
-        return possibleMoves
+        return [piece,possibleMoves]
+
 
 
 

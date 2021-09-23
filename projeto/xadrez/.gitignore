@@ -1,2 +1,5 @@
 settings_local.py
 
+.index.html
+.teste.js
+.db.sqlite3

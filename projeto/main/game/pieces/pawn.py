@@ -54,7 +54,8 @@ def Pawn(allPieces,piece):
                 if allPieces[col-1][row-1] != '----':
                     if allPieces[col-1][row-1][1] == 'w':
                         possibleMoves.append('pb'+str(col-1)+str(row-1))
-        return possibleMoves
+        return [piece,possibleMoves]
+
 
 
                     

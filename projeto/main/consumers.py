@@ -16,7 +16,6 @@ class RoomConsumer(WebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
-
         self.accept()
         self.start_game(self)
 
@@ -26,7 +25,6 @@ class RoomConsumer(WebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
-
 
     # Receive message from room group
     def chat_message(self, event):
@@ -47,6 +45,8 @@ class RoomConsumer(WebsocketConsumer):
         pieces = data['data']['pieces_value']
         self.Room.pieces = pieces
         self.Room.save()
+
+
     commands = {
         'chat_message':chat_message,
         'start_game':start_game,

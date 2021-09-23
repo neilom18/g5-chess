@@ -1,4 +1,5 @@
 
+from verifyCheck import verificarCheck
 from ConvertStringArray import arrayTostring, stringToArray, ArrayToDisplay
 from pieces.pawn import Pawn
 from pieces.cavalo import cavalo
@@ -19,7 +20,11 @@ commands = {
     'k':king
 }
 
-teste = stringToArray(start)
-teste = commands['k'](teste,'kw01')
-teste = ArrayToDisplay(teste)
-print(teste)
+startArray = stringToArray(start)
+piece = 'cb71'
+def selectPiece(allPieces,piece):
+    moves = commands[piece[0]](allPieces,piece)
+    moves = verificarCheck(allPieces,moves)
+    print(moves)
+#pega as posições antes de se movimentar
+selectPiece(startArray,piece)

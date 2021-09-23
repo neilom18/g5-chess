@@ -2,11 +2,11 @@
 
 def queen(allPieces,piece):
      if piece[0] == 'q':
-        possibleMoves = []
         color = piece[1]
         col = int(piece[2])
         row = int(piece[3])
         cont = 1
+        possibleMoves = []
         #MOVIMENTO RETO
 
         #movimenta para cima
@@ -102,4 +102,5 @@ def queen(allPieces,piece):
             else:
                 break
             cont+= 1
-        return possibleMoves
+        return [piece,possibleMoves]
+

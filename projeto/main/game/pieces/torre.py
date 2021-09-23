@@ -52,5 +52,5 @@ def torre(allPieces,piece):
             else:
                 break
             cont += 1
-            return possibleMoves
+        return [piece,possibleMoves]
 

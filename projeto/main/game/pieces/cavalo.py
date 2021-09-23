@@ -25,10 +25,10 @@ def cavalo(allPieces,piece):
         if col+2 < 8 and row-1 >= 0:
             if allPieces[col+2][row-1] == '----':
                 possibleMoves.append('c'+color+str(col+2)+str(row-1))
-        if col-2 < 8 and row+1 < 8:
+        if col-2 >= 0 and row+1 < 8:
             if allPieces[col-2][row+1] == '----':
                 possibleMoves.append('c'+color+str(col-2)+str(row+1))
-        if col-2 < 8 and row-1 >= 0:
+        if col-2 >= 0 and row-1 >= 0:
             if allPieces[col-2][row-1] == '----':
                 possibleMoves.append('c'+color+str(col-2)+str(row-1))
 
@@ -56,12 +56,13 @@ def cavalo(allPieces,piece):
             if allPieces[col+2][row-1] != '----':
                 if allPieces[col+2][row-1][1] != color:
                     possibleMoves.append('c'+color+str(col+2)+str(row-1))
-        if col-2 < 8 and row+1 < 8:
+        if col-2 >= 0 and row+1 < 8:
             if allPieces[col-2][row+1] != '----':
                 if allPieces[col-2][row+1][1] != color:
                  possibleMoves.append('c'+color+str(col-2)+str(row+1))
-        if col-2 < 8 and row-1 >= 0:
+        if col-2 >= 0 and row-1 >= 0:
             if allPieces[col-2][row-1] != '----':
                 if allPieces[col-2][row-1][1] != color:
                  possibleMoves.append('c'+color+str(col-2)+str(row-1))
-        return possibleMoves
+        return [piece,possibleMoves]
+

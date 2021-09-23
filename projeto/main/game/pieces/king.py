@@ -56,4 +56,5 @@ def king(allPieces,piece):
             elif allPieces[col-1][row-1][1] != color:
                 possibleMoves.append('k'+color+str(col-1)+str(row-1))        
 
-        return possibleMoves
+        return [piece,possibleMoves]
+
