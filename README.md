@@ -29,6 +29,16 @@ Em desenvolvimento
 ## 👨‍💻 Cargos da equipe:
 - Lider **Alessandro**
 
+- DBA **Narue e o Alessandro**
+
+- Design **Abdiel**
+
+- Segurança **Alessandro**
+
+- Front-end **Leandro e Abdiel**
+
+- Conteúdo **Leandro**
+
 - Documentação **Rodrigo**
 
 ## 💻 Pré-requisitos:
