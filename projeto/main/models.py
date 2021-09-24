@@ -34,9 +34,9 @@ class Room(models.Model):
 
 #user
 class User(AbstractUser):
-    pais = models.CharField(max_length=100, blank=True,default='')
-    userCode = models.UUIDField(max_length=64,default=uuid.uuid1,editable=True)
+    userCode = models.UUIDField(max_length=64,default=uuid.uuid1,unique=True)
     room = models.ForeignKey(Room, related_name = 'room', blank=True,null=True, on_delete = models.CASCADE)
+
 
     def __str__(self):
         return self.username
