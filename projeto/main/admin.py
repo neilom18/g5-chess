@@ -10,10 +10,10 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserCreationForm
     model = User
     fieldsets = auth_admin.UserAdmin.fieldsets + (
-        ("Extras", {"fields":("pais","sala",)}),
+        ("Extras", {"fields":("pais","room","userCode")}),
     )
 
-@admin.register(Sala)
-class SalaAdmin(admin.ModelAdmin):
-    list_display = ['code','d_criacao']
+@admin.register(Room)
+class RoomAdmin(admin.ModelAdmin):
+    list_display = ['code']
     
