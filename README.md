@@ -23,7 +23,6 @@ Em desenvolvimento
 - **Regras do Jogo**
 - **Jogabilidade**
 - **Controles**
-- **Propaganda Marketing digital**
 
 
 ## 👨‍💻 Cargos da equipe:
@@ -109,9 +108,11 @@ Em desenvolvimento
 - T-Systems
 - ThoughtWorks
 
-## 🗓 Tarefas em aberto:
-- Front-end
-- deixar o modo multiplayer 100%
+## TO-DO:
+ - Lista de amigos
+ - Mais modos de jogo
+ - Rating de jogador
+ - Fila de procura para partida
 
 
 ## Redes Sociais Entra21
