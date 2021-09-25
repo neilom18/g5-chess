@@ -3,8 +3,6 @@
 
 # esse start é simualdo não utilizar ele no oficial (possui peças deslocadas)
 
-from ConvertStringArray import arrayTostring, stringToArray
-
 
 def Pawn(allPieces,piece):
     if piece[0] == 'p':

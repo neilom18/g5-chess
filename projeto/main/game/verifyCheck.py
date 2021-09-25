@@ -1,9 +1,9 @@
-from pieces.pawn import Pawn
-from pieces.torre import torre
-from pieces.queen import queen
-from pieces.king import king
-from pieces.cavalo import cavalo
-from pieces.bispo import bispo
+from main.game.pieces.pawn import Pawn
+from main.game.pieces.torre import torre
+from main.game.pieces.queen import queen
+from main.game.pieces.king import king
+from main.game.pieces.cavalo import cavalo
+from main.game.pieces.bispo import bispo
 
 
 def findKing(allPieces,color):
@@ -17,7 +17,7 @@ def findKing(allPieces,color):
                         return king
 def verificarCheck(allPieces,Moves):
     #vai retornar os movimentos realmente possíveis que não vão te deixar em cheque
-    possibleMoves = []
+    possibleMoves = [Moves[0]]
 
     commands = {
     'p':Pawn,

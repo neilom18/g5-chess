@@ -1,4 +1,3 @@
-import ConvertStringArray
 
 
 def king(allPieces,piece):

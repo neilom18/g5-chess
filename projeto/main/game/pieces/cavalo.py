@@ -1,4 +1,3 @@
-from ConvertStringArray import arrayTostring, stringToArray, ArrayToDisplay
 
 def cavalo(allPieces,piece):
     if piece[0] == 'c':

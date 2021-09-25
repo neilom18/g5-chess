@@ -11,12 +11,16 @@ const chatSocket = new WebSocket(
 // recebe a mensagem do websocket
 chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
+   console.log(data)
     if(data.message){
         document.querySelector('#chat-log').value += (data.message + '\n');
 
     }
     if(data.piece){
         console.log(data.piece)
+    }
+    else{
+        console.log(data)
     }
 };
 // informa quando é desconectado do websocket
@@ -38,8 +42,8 @@ document.querySelector('#chat-message-input').onkeyup = function(e) {
 document.querySelector('#chat-message-submit').onclick = function(e) {
     const messageInputDom = document.querySelector('#chat-message-input');
     const message = messageInputDom.value;
-    chatSocket.send(JSON.stringify({
-        'command':'chat_message',
+    chatSocket.send(JSON.stringify({    
+        'command':'select_piece',
         'message': message
     }));
     messageInputDom.value = '';

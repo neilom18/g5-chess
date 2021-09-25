@@ -1,5 +1,8 @@
+
 # chat/consumers.py
 import json
+from main.game.game import selectPiece
+from main.game.ConvertStringArray import stringToArray
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from .models import Room
@@ -41,6 +44,24 @@ class RoomConsumer(WebsocketConsumer):
             'piece':self.Room.pieces
         }))
 
+    def select_piece(self,data):
+        dataSimulada = 'kb71'
+        allPieces = stringToArray(self.Room.pieces)
+        moves = selectPiece(allPieces,dataSimulada)
+        print(type(moves))
+        print(type(dataSimulada))
+        if dataSimulada == moves:
+            print('teste')
+            self.send(text_data=json.dumps({
+                'message':'nenhum movimento possível',
+                'piece':dataSimulada
+            }))
+        else:
+            self.send(text_data=json.dumps({
+                'message':'moves',
+                'moves':moves
+            }))
+
     def move_piece(self,data):
         pieces = data['data']['pieces_value']
         self.Room.pieces = pieces
@@ -50,6 +71,7 @@ class RoomConsumer(WebsocketConsumer):
     commands = {
         'chat_message':chat_message,
         'start_game':start_game,
+        'select_piece':select_piece,
         'move_piece':move_piece,
     }
     # Receive message from WebSocket
@@ -60,7 +82,7 @@ class RoomConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
-                'type': command,
+                'type':command,
                 'data':text_data_json
             }
         )

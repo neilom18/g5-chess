@@ -29,8 +29,7 @@ def stringToArray(pieces):
 
 def arrayTostring(piecesArray):
     piecesString = ''
-    for pieceCol in piecesArray:
-        for piece in pieceCol:
+    for piece in piecesArray:
             if piece != '----' :
                 piecesString += piece + ' '
     return piecesString
