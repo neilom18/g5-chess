@@ -34,7 +34,7 @@ class Room(models.Model):
 
 #user
 class User(AbstractUser):
-    userCode = models.UUIDField(max_length=64,default=uuid.uuid1,unique=True)
+    userCode = models.UUIDField(max_length=64,default=uuid.uuid5,unique=True)
     room = models.ForeignKey(Room, related_name = 'room', blank=True,null=True, on_delete = models.CASCADE)
 
 
