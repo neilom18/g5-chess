@@ -57,7 +57,11 @@ function drawPieces(allPieces){
         squares = Array.from(squares)
         squares.map((square) => {
             if(square.dataset.id == pieceCoord){
+<<<<<<< HEAD
                 square.innerHTML = `<img class='square' src='./pecas/${piece[0]}${piece[1]}'>`
+=======
+                square.innerHTML = `<img class='square' src='../../static/imagens/piece/${piece[0]}${piece[1]}.png'>`
+>>>>>>> 3acec6add6430a6b37d2a5ceaa2ce7b65e66f331
                 return;
             }
             return;
