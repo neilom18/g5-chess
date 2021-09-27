@@ -47,58 +47,8 @@ for (let i = 0; i < 8; i++) {
 }
 // Display do tabuleiro
 tabuleiro = lista.map((item) => {
-    if (item[0] == 'p'){
-        if(item[1] == 1){
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/peaoWhite.png"></div>`}
-        else{
-        return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-        <img class="square" src="../../static/imagens/piece/peaoBlack.png"></div>`}        
-    }
-    else if (item[0] == 'r'){
-        if(item[1] == 0){
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/torreWhite.png"></div>`
-        }else{
-        return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-        <img class="square" src="../../static/imagens/piece/torreBlack.png"></div>`}        
-    }
-    else if (item[0] == 'c'){
-        if(item[1] == 0){
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/cavaloWhite.png"></div>`
-        }
-        return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-        <img class="square" src="../../static/imagens/piece/cavaloBlack.png"></div>`        
-    }
-    else if (item[0] == 'b'){
-        if(item[1] == 0){
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/bispoWhite.png"></div>`
-        }
-        return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-        <img class="square" src="../../static/imagens/piece/bispoBlack.png"></div>`        
-    }
-    else if (item[0] == 'q'){
-        if(item[1] == 0){
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/queenWhite.png"></div>`
-        }else{
-        return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-        <img class="square" src="../../static/imagens/piece/queenBlack.png"></div>`}        
-    }
-    else if (item[0] == 'k'){
-        if(item[1] == 0){
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/kingWhite.png"></div>`
-        }else{
-            return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-                <img class="square" src="../../static/imagens/piece/kingBlack.png"></div>`}        
-    }
-    else{
-        return `<div class="square ${item[3]}"data-id="${item[0]}${item[3][0]}${item[1]}${item[2]}">
-        </div>`        
-    }
+        return `<div class="quadrado square ${item[3]}"data-id="${item[1]}${item[2]}">
+        </div>`
     
 }).join('')
 board.innerHTML = tabuleiro
