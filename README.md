@@ -92,10 +92,12 @@ Em desenvolvimento
 - **Abra o Chrome e o endereço http://localhost:8000/aplicativoX**
 
 ## 🗂 Database:
-- Ainda nao definido
+
+- SQL 
+![Nsolid](https://imgur.com/EHhgxuD.png)
 
 ## 🩺 Solução de problemas:
-- Ainda nao definido
+- Nenhum Problema encontrado ate o momento
 
 ## 👨‍💻 Contribuintes:
 - Entra21 blusoft
