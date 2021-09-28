@@ -93,7 +93,7 @@ Em desenvolvimento
 
 ## 🗂 Database:
 
-- SQL 
+- db.sqlite3
 
 ![Nsolid](https://imgur.com/EHhgxuD.png)
 
