@@ -6,7 +6,7 @@
 ## 🟢 Status:
 Em desenvolvimento
 
-## CONTATO COM DESENVOLVEDORES :
+## Contato com desenvolvedores :
 
 - **EMAIL** : entra21chess@gmail.com
 
