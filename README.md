@@ -6,6 +6,10 @@
 ## 🟢 Status:
 Em desenvolvimento
 
+## CONTATO COM DESENVOLVEDORES :
+
+- **EMAIL** : entra21chess@gmail.com
+
 ## 👨‍💼 Projeto feito por: 👨‍💼 
 - **Rodrigo**
   
