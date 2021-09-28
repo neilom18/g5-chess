@@ -16,8 +16,8 @@
     <div class="upperdiv">
         <div class="letters"></div>
         <div class="numbers"></div>
+        <div class="board"></div>
     </div>
-    <div class="board"></div>
     <!-- faz um script json para que eu possa pegar o valor no javascript no front -->
     {{ room_name|json_script:"room-name" }}
     <script src='{%static 'js/board.js'%}'></script>

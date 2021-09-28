@@ -34,5 +34,11 @@ def arrayTostring(piecesArray):
                 piecesString += piece + ' '
     return piecesString
 
-
+def arrayToStringallPieces(piecesArray):
+    piecesString = ''
+    for line in piecesArray:
+        for piece in line:
+            if piece != '----':
+                piecesString += piece + ' '
+    return piecesString
 

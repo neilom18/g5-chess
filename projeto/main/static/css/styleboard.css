@@ -22,7 +22,7 @@ body{
 
 .board
 {
-    position: absolute;
+    position: fixed;
     display: grid;
     grid-template-columns: repeat(8,1fr);
     top: 47%;
@@ -59,7 +59,14 @@ body{
     top: 0;
     text-align: center;
 }   
-
+/* quadrados que a peça pode se mover */
+.selectedSquare{
+    background: #f5d074 !important;
+}
+/* peça selecionada */
+.selected{
+    background: #E5BE5A !important ;
+}
 .letters
 {
     position: absolute;
