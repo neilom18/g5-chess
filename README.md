@@ -94,6 +94,7 @@ Em desenvolvimento
 ## 🗂 Database:
 
 - SQL 
+
 ![Nsolid](https://imgur.com/EHhgxuD.png)
 
 ## 🩺 Solução de problemas:
