@@ -24,20 +24,35 @@ def ramCode():
                 
     return r
 """
+def zerado(x):
+        if x == 0:
+            return True
+        else:
+            return False
 
 start = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 
 #Rooms
 class Room(models.Model):
-    code = models.CharField(max_length=10,default="",)
+    roomCode = models.UUIDField(max_length=64,default=uuid.uuid4(),unique=True,)
     pieces = models.CharField(max_length=len(start), blank=False,null=False, default=start)
 
 #user
 class User(AbstractUser):
     userCode = models.UUIDField(max_length=64,default=uuid.uuid4(),unique=True)
+<<<<<<< HEAD
     room = models.ForeignKey(Room, related_name = 'room', blank=True,default='', on_delete = models.CASCADE)
+=======
+    room = models.ForeignKey(Room, related_name = 'room', null = True,blank=True, on_delete = models.CASCADE)
+>>>>>>> 5d9bc4a7eebe90d9d7d008da46ea48c70728d580
 
 
     def __str__(self):
         return self.username
+
+class Relogio(models.Model):
+    time = models.DecimalField(max_digits=3, decimal_places=2)
+    zero = models.BooleanField(default=zerado(time))
+
+    
 

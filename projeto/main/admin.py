@@ -14,4 +14,8 @@ class UserAdmin(auth_admin.UserAdmin):
 
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ['code']
+    list_display = ['roomCode']
+
+@admin.register(Relogio)
+class RelogioAdmin(admin.ModelAdmin):
+    list_display = ['time','zero']
