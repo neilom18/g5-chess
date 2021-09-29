@@ -69,7 +69,7 @@
             {% endif %}
         </header>
         {% if user.is_authenticated %}
-            <button type="button", class='tap'>Criar Sala</button>
+            <a href='webscoket/'><button type="button", class='tap'>Criar Sala</button></a>
             <a href="lista_salas"><button type="button", class='tap'>Entrar em salas</button></a>
             {% for User in Users %}
                 <p>{{User.request.user_id}}</p>
