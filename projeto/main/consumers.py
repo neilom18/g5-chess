@@ -10,7 +10,7 @@ class RoomConsumer(WebsocketConsumer):
     def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
-        self.Room,created = Room.objects.get_or_create(code=self.room_group_name)
+        self.Room,created = Room.objects.get_or_create(roomCode=self.room_group_name)
         if(created):
             print("novo")
         print(self.Room.pieces)

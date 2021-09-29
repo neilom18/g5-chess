@@ -33,8 +33,6 @@ def verificarCheck(allPieces,Moves):
     }
     #checa a posição do rei
     kingPos = findKing(allPieces,Moves[0][1])
-    print(kingPos)
-    print(allPieces, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     #checa cada movimento pra ver se é possível realizar
     for move in Moves[1]:
         #booleana que define se está em cheque
