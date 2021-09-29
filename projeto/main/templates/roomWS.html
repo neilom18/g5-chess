@@ -16,6 +16,7 @@
         <input id="chat-message-submit" type="button" value="Send">
     </div>
         <!-- html do tabuleiro -->
+        <span></span>
         <div class="upperdiv">
             <div class="letters"></div>
             <div class="numbers"></div>
@@ -23,7 +24,9 @@
     <div class="board"></div>
     <!-- faz um script json para que eu possa pegar o valor no javascript no front -->
     {{ room_name|json_script:"room-name" }}
+    <input type="hidden" id="myUser" data-code="{{ user.userCode}}" value="{{ user.username }}">
     <script src='{%static 'js/board.js'%}'></script>
     <script src='{%static 'js/websocket.js'%}'></script>
+    <script src='{%static 'js/features.js'%}'></script>
 </body>
 </html>

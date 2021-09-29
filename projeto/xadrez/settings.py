@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+with open('xadrez/local_settings.py') as infile:
+        exec(infile.read())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -93,12 +95,8 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# as definições de Databases foram para local_setting.py
+
 
 
 # Password validation
@@ -158,7 +156,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #comentário teste
 
 #comentário 2
-SECRET_KEY = 'django-insecure-ryd%zs#4lshl))xhosjv4lg+u8k!yo=lla3--+_x-j4^@-va02'
 
 #teste
 
@@ -170,3 +167,4 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
