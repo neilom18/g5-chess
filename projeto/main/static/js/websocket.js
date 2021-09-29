@@ -29,7 +29,7 @@ const receiveMessage = (e) => {
         squares.map((square) =>{
             if(square.dataset.id == pieceCoord){
                 square.classList.add('selected')
-                window.addEventListener('click',selectedPieceRemoveColor)
+                window.addEventListener('click',selectedPieceFunction)
             }
         }) 
     }
@@ -58,6 +58,7 @@ const receiveMessage = (e) => {
         positions = data.movePiece
         initialPos = positions[0]
         finalPos = positions[1]
+        ''
         // pega a peça que sera movida
         document.querySelector(`[data-piece="${initialPos}"]`).remove()
         const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
@@ -133,7 +134,7 @@ function drawPiecesStart(allPieces){
         squares = Array.from(squares)
         squares.map((square) => {
             if(square.dataset.id == pieceCoord){
-                square.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${piece[0]}${piece[1]}.png' data-piece="${piece}" ${piece[1]==yourColor? `onclick="selectPiece(this)"`:''}>`
+                square.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${piece[0]}${piece[1]}.png' data-piece="${piece}" ${piece[1]==yourColor? `onclick="selectPiece(this)"`:'onclick="selectPiece(this)"'}>`
                 return;
             }
             return;

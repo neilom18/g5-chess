@@ -79,7 +79,6 @@ class RoomConsumer(WebsocketConsumer):
                     piecesArray[int(piece[2])][int(piece[3])] = '----'
                     piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
                     self.Room.pieces = arrayToStringallPieces(piecesArray)
-                    print(self.Room.pieces)
                     move_piece = move
                     self.send(text_data=json.dumps({
                         'message':'moved',
