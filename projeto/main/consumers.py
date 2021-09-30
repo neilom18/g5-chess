@@ -6,10 +6,11 @@ from main.game.ConvertStringArray import arrayToStringallPieces, arrayTostring, 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from .models import Room
-from channels.layers import get_channel_layer
+
 
 class RoomConsumer(WebsocketConsumer):
     def connect(self):
+        #por causa do all auth já estar como padrão ao executarmos o self.scope ele já nos retorna o usuário logado
         self.userName = self.scope['user']
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
@@ -40,12 +41,21 @@ class RoomConsumer(WebsocketConsumer):
         }))
 
     def start_game(self,data):
+        #esse filter é pego la do receive, pra cada conexão no django o filter é diferente então ao mandar info pro grupo como #user1 o seu filter vai ser #user1 e aqui eu quero
+        # mandar uma resposta apenas para o user1 e todos os outros usuarios não podem receber essa mesma resposta então eu comparo se o valor filter é o mesmo do seu channel_name
+        # o channel_name é a variável que popula meu filter então se eu comparalos devem ser iguais
         if data['filter'] == self.channel_name:
             self.send(text_data=json.dumps({
                 'user':str(self.userName),
                 'message':self.channel_name,
                 'startGame':self.Room.pieces
             }))
+
+    
+
+    def get_name(self, data):
+        self.username = data['data']['username']
+        print(self.username)
 
     def select_piece(self,data):
         #recolhe a peça que foi selecionada
@@ -88,12 +98,6 @@ class RoomConsumer(WebsocketConsumer):
                         'movePiece':move_piece
                     }))
                     return
-
-    commands = {
-        'chat_message':chat_message
-    }
-
-
 
 
     # Receive message from WebSocket

@@ -7,8 +7,9 @@
 
 body{
     min-height: 100vh;
+    background: linear-gradient(120deg, green, rgb(51, 255, 0) 1%, green);
+    margin: 0 auto;
 }
-
 .upperdiv
 {
     position: absolute;
@@ -31,6 +32,7 @@ body{
     border: 5px solid black;
     height: 610px;
     width: 610px;
+    
 }
 
 .square {
@@ -79,4 +81,15 @@ body{
 
 li {
     list-style: none;
+}
+
+.chat{
+    float:right;
+    margin-top: 10%;
+    margin-right: 5%;
+}
+
+#chat-log{
+    background: linear-gradient(120deg, green, rgb(51, 255, 0) 1%, green);
+    border: solid black 2px;
 }

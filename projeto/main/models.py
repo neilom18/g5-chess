@@ -35,13 +35,13 @@ start = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 p
 
 #Rooms
 class Room(models.Model):
-    roomCode = models.CharField(max_length=10,default="",)
+    roomCode = models.UUIDField(max_length=64,default=uuid.uuid4(),unique=True,)
     pieces = models.CharField(max_length=len(start), blank=False,null=False, default=start)
 
 #user
-class User(AbstractUser):
+class User(AbstractUser): 
     userCode = models.UUIDField(max_length=64,default=uuid.uuid4(),unique=True)
-    room = models.ForeignKey(Room, related_name = 'room', blank=True,null=True, on_delete = models.CASCADE)
+    room = models.ForeignKey(Room, related_name = 'room', null = True,blank=True, on_delete = models.CASCADE)
 
 
     def __str__(self):
@@ -52,11 +52,6 @@ class Relogio(models.Model):
     zero = models.BooleanField(default=zerado(time))
 
 
-# class Room(models.Model):
-#     roomCode = models.UUIDField(max_length=64,default=uuid.uuid4(),unique=True,)
-#     pieces = models.CharField(max_length=len(start), blank=False,null=False, default=start)
 
-# #user
-# class User(AbstractUser): 
-#     userCode = models.UUIDField(max_length=64,default=uuid.uuid4(),unique=True)
-#     room = models.ForeignKey(Room, related_name = 'room', null = True,blank=True, on_delete = models.CASCADE)
+
+
