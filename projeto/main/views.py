@@ -1,8 +1,10 @@
+from django import db
 from django.shortcuts import render
 from .serializers import RoomSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Room
+from .models import Room, User
+
 
 #Template request
 def home(request):

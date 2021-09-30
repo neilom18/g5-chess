@@ -145,7 +145,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
-#/Usuários
 
 
 # Default primary key field type
@@ -153,11 +152,6 @@ LOGIN_REDIRECT_URL = "/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#comentário teste
-
-#comentário 2
-
-#teste
 
 #rest_framework
 REST_FRAMEWORK = {
