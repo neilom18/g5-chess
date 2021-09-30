@@ -6,14 +6,14 @@ from main.game.ConvertStringArray import arrayToStringallPieces, arrayTostring, 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from .models import Room
+from channels.layers import get_channel_layer
+
 class RoomConsumer(WebsocketConsumer):
     def connect(self):
+        self.userName = self.scope['user']
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         self.Room,created = Room.objects.get_or_create(roomCode=self.room_group_name)
-        if(created):
-            print("novo")
-        print(self.Room.pieces)
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
@@ -31,6 +31,7 @@ class RoomConsumer(WebsocketConsumer):
 
     # Receive message from room group
     def chat_message(self, event):
+        print("message")
         message = event['data']['message']
 
         # Send message to WebSocket
@@ -39,10 +40,12 @@ class RoomConsumer(WebsocketConsumer):
         }))
 
     def start_game(self,data):
-        self.send(text_data=json.dumps({
-            'message':'game has been started',
-            'startGame':self.Room.pieces
-        }))
+        if data['filter'] == self.channel_name:
+            self.send(text_data=json.dumps({
+                'user':str(self.userName),
+                'message':self.channel_name,
+                'startGame':self.Room.pieces
+            }))
 
     def select_piece(self,data):
         #recolhe a peça que foi selecionada
@@ -86,14 +89,8 @@ class RoomConsumer(WebsocketConsumer):
                     }))
                     return
 
-
-
-
     commands = {
-        'chat_message':chat_message,
-        'start_game':start_game,
-        'select_piece':select_piece,
-        'move_piece':move_piece,
+        'chat_message':chat_message
     }
 
 
@@ -101,6 +98,7 @@ class RoomConsumer(WebsocketConsumer):
 
     # Receive message from WebSocket
     def receive(self, text_data):
+        print(self.channel_name)
         text_data_json = json.loads(text_data)
         command = text_data_json['command']
         # Send message to room group
@@ -108,6 +106,7 @@ class RoomConsumer(WebsocketConsumer):
             self.room_group_name,
             {
                 'type':command,
-                'data':text_data_json
+                'data':text_data_json,
+                'filter':self.channel_name
             }
         )

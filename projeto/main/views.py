@@ -27,5 +27,5 @@ def homeWS(request):
 
 def room(request, room_name):
     return render(request,'roomWS.html',{
-        'room_name': room_name
+        'room_name': room_name,
     })
