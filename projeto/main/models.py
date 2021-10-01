@@ -37,6 +37,10 @@ start = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 p
 class Room(models.Model):
     roomCode = models.CharField(max_length=10,default="",)
     pieces = models.CharField(max_length=len(start), blank=False,null=False, default=start)
+    user1 = models.CharField(max_length=150,default='')
+    user2 = models.CharField(max_length=150,default='')
+    whoMove = models.BooleanField(default=True)
+
 
 #user
 class User(AbstractUser):
