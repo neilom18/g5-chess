@@ -1,8 +1,9 @@
 
 # chat/consumers.py
 import json
+from main.game.especialMoves import EnPassant
 from main.game.game import selectPiece
-from main.game.ConvertStringArray import arrayToStringallPieces, arrayTostring, stringToArray
+from main.game.ConvertStringArray import arrayToStringallPieces, arrayTostring, stringToArray, arrayToHistory
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from .models import Room
@@ -74,21 +75,9 @@ class RoomConsumer(WebsocketConsumer):
                 'startGame':self.Room.pieces
             }))
 
-    # def start_game(self,data):
-    #     #esse filter é pego la do receive, pra cada conexão no django o filter é diferente então ao mandar info pro grupo como #user1 o seu filter vai ser #user1 e aqui eu quero
-    #     # mandar uma resposta apenas para o user1 e todos os outros usuarios não podem receber essa mesma resposta então eu comparo se o valor filter é o mesmo do seu channel_name
-    #     # o channel_name é a variável que popula meu filter então se eu comparalos devem ser iguais
-    #     if data['filter'] == self.channel_name:
-    #         self.send(text_data=json.dumps({
-    #             'user':str(self.userName),
-    #             'message':self.channel_name,
-    #             'startGame':self.Room.pieces
-    #         }))
-
    
     def get_name(self, data):
         self.username = data['data']['username']
-        print(self.username)
 
     def select_piece(self,data):
         #recolhe a peça que foi selecionada
@@ -102,7 +91,7 @@ class RoomConsumer(WebsocketConsumer):
                 for pieceInBack in line:
                     if pieceInBack == piece:
                         #se a peça existir vou retornar o movimentos possíveis caso haja se não apenas retorno a peça
-                        moves = selectPiece(allPieces,piece)
+                        moves = selectPiece(allPieces,piece,self.Room)
                         if piece == moves.strip():
                             self.send(text_data=json.dumps({
                                 'message':'nenhum movimento possível',
@@ -118,7 +107,7 @@ class RoomConsumer(WebsocketConsumer):
                     for pieceInBack in line:
                         if pieceInBack == piece:
                             #se a peça existir vou retornar o movimentos possíveis caso haja se não apenas retorno a peça
-                            moves = selectPiece(allPieces,piece)
+                            moves = selectPiece(allPieces,piece,self.Room)
                             if piece == moves.strip():
                                 self.send(text_data=json.dumps({
                                     'message':'nenhum movimento possível',
@@ -141,6 +130,8 @@ class RoomConsumer(WebsocketConsumer):
             self.Room.whoMove = True
     #executa os movimentos para a peça selecionada
     def move_piece(self,data):
+        EnPassant = False
+        #actualize move for all players
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
@@ -148,23 +139,51 @@ class RoomConsumer(WebsocketConsumer):
                 'data':data
             }
         )
-        print(self.Room.user1)
         move = data['data']['move']
         move = move.split(' ')
         pieces = self.Room.pieces
         piecesArray = stringToArray(pieces)
+
+        #atualiza o histórico para os players
+        if self.Room.history != '':
+            self.Room.history = self.Room.history + arrayToHistory(move) +','
+        else:
+            self.Room.history = arrayToHistory(move)+','
+        print(self.Room.history)
         for line in piecesArray:
             for piece in line:
                 if piece == move[0]:
-                    piecesArray[int(piece[2])][int(piece[3])] = '----'
-                    piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
+                    #verifica se é um peão
+                    if move[0][0] == 'p':
+                        #verifica se é um movimento EnPassant
+                        if move[0][3] != move[1][3]:
+                            if piecesArray[int(move[1][2])][int(move[1][3])] == '----':
+                                #aplica o EnPassant
+                                piecesArray[int(piece[2])][int(piece[3])] = '----'
+                                piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
+                                if move[0][1] == 'w':
+                                    move.append(piecesArray[int(move[1][2])-1][int(move[1][3])])
+                                    piecesArray[int(move[1][2])-1][int(move[1][3])] = '----'
+                                else:
+                                    move.append(piecesArray[int(move[1][2])+1][int(move[1][3])])
+                                    piecesArray[int(move[1][2])+1][int(move[1][3])] = '----'
+                                print(move)
+                                EnPassant = True
+                                print(move[1])
+                                self.send(text_data=json.dumps({
+                                    'message':'moved',
+                                    'enPassant':move
+                                }))
+                    if EnPassant == False:
+                        piecesArray[int(piece[2])][int(piece[3])] = '----'
+                        piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
+                        move_piece = move
+                        self.send(text_data=json.dumps({
+                            'message':'moved',
+                            'movePiece':move_piece
+                        }))
+                        print(piecesArray[4][4])
                     self.Room.pieces = arrayToStringallPieces(piecesArray)
-                    move_piece = move
-                    self.send(text_data=json.dumps({
-                        'message':'moved',
-                        'movePiece':move_piece
-                    }))
-                    return
 
 
     # Receive message from WebSocket

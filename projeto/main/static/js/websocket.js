@@ -62,12 +62,21 @@ const receiveMessage = (e) => {
         positions = data.movePiece
         initialPos = positions[0]
         finalPos = positions[1]
-        ''
         // pega a peça que sera movida
         document.querySelector(`[data-piece="${initialPos}"]`).remove()
         const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
         squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}" onclick="selectPiece(this)">`
-
+    }
+    if (data.enPassant){
+        positions = data.enPassant
+        initialPos = positions[0]
+        finalPos = positions[1]
+        otherPiecePos = positions[2]
+        // pega a peça que sera movida
+        document.querySelector(`[data-piece="${otherPiecePos}"]`).remove()
+        document.querySelector(`[data-piece="${initialPos}"]`).remove()
+        const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
+        squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}" onclick="selectPiece(this)">`
     }
 }
 
@@ -141,6 +150,7 @@ function drawPiecesStart(allPieces){
     }
 }
 function selectPiece(e){
+    if(e.dataset.piece[1] == yourColor)
     webSocket.send(JSON.stringify({
         'command':'select_piece',
         'piece':e.dataset.piece

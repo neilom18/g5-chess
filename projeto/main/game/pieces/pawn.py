@@ -18,8 +18,9 @@ def Pawn(allPieces,piece):
                     possibleMoves.append('pw'+str(col+1)+str(row))
             #primeiro movimento pode mover duas casas
             if col == 1:
-                if allPieces[col+2][row] == '----':
-                    possibleMoves.append('pw'+str(col+2)+str(row))
+                if allPieces[col+1][row] == '----':
+                    if allPieces[col+2][row] == '----':
+                        possibleMoves.append('pw'+str(col+2)+str(row))
             #coluna +1 e linha + 1
             if col+1 < 8 and row+1 < 8:
                 if allPieces[col+1][row+1] != '----':
@@ -40,8 +41,9 @@ def Pawn(allPieces,piece):
                     possibleMoves.append('pb'+str(col-1)+str(row))
         #primeiro movimento pode mover duas casas
             if col == 6:
-                if allPieces[col-2][row] == '----':
-                    possibleMoves.append('pb'+str(col-2)+str(row))
+                if allPieces[col-1][row] == '----':
+                    if allPieces[col-2][row] == '----':
+                        possibleMoves.append('pb'+str(col-2)+str(row))
         # coluna -1 e linha +1
             if col-1 >= 0 and row +1 < 8:
                 if allPieces[col-1][row+1] != '----':

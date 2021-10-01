@@ -40,6 +40,7 @@ class Room(models.Model):
     user1 = models.CharField(max_length=150,default='')
     user2 = models.CharField(max_length=150,default='')
     whoMove = models.BooleanField(default=True)
+    history = models.TextField(default='')
 
 
 #user
