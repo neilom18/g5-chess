@@ -1,0 +1,7 @@
+enviar o nome do usuario para o Front, (mostrar quem é quem)
+Relógio{ Front e Back},
+Salvar as jogadas de forma pra mostrar no histórico,
+Terminar CSS {CADASTRO, LOGIN, HOME, CRIAR SALA, SALA HISTORICO, entra Sala},
+Verificar o xeque mate,
+Criar ids unicos random de usuario dinamicamente,
+Criar as Rooms dinamicamente,

@@ -1,6 +1,7 @@
 let squares = document.querySelectorAll('.quadrado')
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
 const startoooloo = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
+let yourColor = ''
 const webSocket = new WebSocket(
     'ws://'
     +window.location.host
@@ -21,6 +22,7 @@ const receiveMessage = (e) => {
     }
     // verficia se tem alguma função startgame que vai ir ao nosso usuario
     if(data.startGame){
+        yourColor = data.userColor
         document.querySelector("#chat-log").value += ('você está logado como'+data.user + '\n')
         drawPiecesStart(data.startGame)
     }
@@ -60,12 +62,21 @@ const receiveMessage = (e) => {
         positions = data.movePiece
         initialPos = positions[0]
         finalPos = positions[1]
-        ''
         // pega a peça que sera movida
         document.querySelector(`[data-piece="${initialPos}"]`).remove()
         const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
         squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}" onclick="selectPiece(this)">`
-
+    }
+    if (data.enPassant){
+        positions = data.enPassant
+        initialPos = positions[0]
+        finalPos = positions[1]
+        otherPiecePos = positions[2]
+        // pega a peça que sera movida
+        document.querySelector(`[data-piece="${otherPiecePos}"]`).remove()
+        document.querySelector(`[data-piece="${initialPos}"]`).remove()
+        const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
+        squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}" onclick="selectPiece(this)">`
     }
 }
 
@@ -101,15 +112,7 @@ webSocket.onclose = function(e){
 webSocket.onmessage = receiveMessage
 
 // envia a informação de que eu entrei
-webSocket.onopen =  (e) => {
-    webSocket.send(JSON.stringify({
-        'command':'start_game'
-    }))
-    webSocket.send(JSON.stringify({
-        'command': 'get_name',
-        'username': user
-    }))
-}
+
 // enviar mensagem com o enter
 chatButton.focus()
 chatButton.onkeyup = function(e) {
@@ -130,7 +133,6 @@ chatButton.onclick = function(e){
 
 
 function drawPiecesStart(allPieces){
-    yourColor = 'w'
     allPiecesArray = allPieces.split(' ')
     for (let i = 0; i<allPiecesArray.length;i++){
         const piece = allPiecesArray[i]
@@ -140,7 +142,7 @@ function drawPiecesStart(allPieces){
         squares = Array.from(squares)
         squares.map((square) => {
             if(square.dataset.id == pieceCoord){
-                square.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${piece[0]}${piece[1]}.png' data-piece="${piece}" ${piece[1]==yourColor? `onclick="selectPiece(this)"`:'onclick="selectPiece(this)"'}>`
+                square.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${piece[0]}${piece[1]}.png' data-piece="${piece}" ${piece[1]==yourColor? `onclick="selectPiece(this)"`:''}>`
                 return;
             }
             return;
@@ -148,6 +150,7 @@ function drawPiecesStart(allPieces){
     }
 }
 function selectPiece(e){
+    if(e.dataset.piece[1] == yourColor)
     webSocket.send(JSON.stringify({
         'command':'select_piece',
         'piece':e.dataset.piece
