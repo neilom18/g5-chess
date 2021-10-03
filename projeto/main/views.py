@@ -13,9 +13,6 @@ def home(request):
 def lista_salas(request):
     return render(request, 'lista_salas.html')
 
-def sala(request):
-    return render(request, 'tabuleiro.html')
-
 def historico(request):
     return render(request, 'historico.html')
 

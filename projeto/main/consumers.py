@@ -64,12 +64,16 @@ class RoomConsumer(WebsocketConsumer):
         usuario2 = data['data']['user2']
         if usuario1 == str(self.scope['user']):
             self.send(text_data=json.dumps({
+                'user1': usuario1,
+                'user2': usuario2,
                 'userColor':'w',
                 'message':'game has been started you are white pieces',
                 'startGame':self.Room.pieces
             }))
         elif usuario2 == str(self.scope['user']):
             self.send(text_data=json.dumps({
+                'user1': usuario1,
+                'user2': usuario2,
                 'userColor':'b',
                 'message':'game has been started you are black pieces',
                 'startGame':self.Room.pieces
