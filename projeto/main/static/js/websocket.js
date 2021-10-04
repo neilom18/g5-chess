@@ -1,6 +1,7 @@
 let squares = document.querySelectorAll('.quadrado')
 const chatButton = document.querySelector("#chat-message-input")
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
+const chatButton = document.querySelector('#chat-message-input');
 const startoooloo = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 let yourColor = ''
 const webSocket = new WebSocket(
@@ -21,6 +22,13 @@ const receiveMessage = (e) => {
     if(data.message){
         document.querySelector("#chat-log").value += (data.message + '\n')
     }
+    if(data.user1){
+        document.querySelector('.user1').textContent = data.user1
+    }
+    if(data.user2){
+        document.querySelector('.user2').textContent = data.user2
+        document.querySelector('.aviso').remove()
+    }    
     // verficia se tem alguma função startgame que vai ir ao nosso usuario
     if(data.startGame){
         yourColor = data.userColor

@@ -9,18 +9,20 @@
     <title>Chess Game</title>
 </head>
 <body>
+    <h2 class='aviso'>Aguardando Adversário.</h2>
     <!-- html do chat -->
     <div class="chat">
-        <textarea id="chat-log" cols="50" rows="30"></textarea><br>
+        <textarea id="chat-log" rows="30"></textarea><br>
         <input id="chat-message-input" type="text" size="50"><br>
         <input id="chat-message-submit" type="button" value="Send">
     </div>
-        <!-- html do tabuleiro -->
-        <span></span>
-        <div class="upperdiv">
-            <div class="letters"></div>
-            <div class="numbers"></div>
-        </div>
+    <!--  Tablueiro e Usuarios  -->
+    <strong class='user1'></strong>
+    <div class="upperdiv">
+        <div class="letters"></div>
+        <div class="numbers"></div>      
+    </div>
+    <strong class='user2'></strong>   
     <div class="board"></div>
     <!-- faz um script json para que eu possa pegar o valor no javascript no front -->
     {{ room_name|json_script:"room-name" }}
