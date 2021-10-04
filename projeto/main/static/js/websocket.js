@@ -1,4 +1,5 @@
 let squares = document.querySelectorAll('.quadrado')
+const chatButton = document.querySelector("#chat-message-input")
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
 const startoooloo = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 let yourColor = ''
@@ -78,8 +79,20 @@ const receiveMessage = (e) => {
         const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
         squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}" onclick="selectPiece(this)">`
     }
+    // executa o movimento do castles(roque)
+    if (data.castles){
+        kingInitialPos = data.castles[0]
+        kingFinalPos = data.castles[1]
+        rookInitialPos = data.castles[2]
+        rookFinalPos = data.castles[3]
+        document.querySelector(`[data-piece="${kingInitialPos}"]`).remove()
+        document.querySelector(`[data-piece="${rookInitialPos}"]`).remove()
+        const squareTomove1 = document.querySelector(`[data-id="${kingFinalPos[2]}${kingFinalPos[3]}"]`)
+        const squareTomove2 = document.querySelector(`[data-id="${rookFinalPos[2]}${rookFinalPos[3]}"]`)
+        squareTomove1.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${kingFinalPos[0]}${kingFinalPos[1]}.png' data-piece="${kingFinalPos}" onclick="selectPiece(this)">`
+        squareTomove2.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${rookFinalPos[0]}${rookFinalPos[1]}.png' data-piece="${rookFinalPos}" onclick="selectPiece(this)">`
 }
-
+}
 const selectedPieceFunction = (e) => {
     if (e.target.classList.contains('selectedSquare')){
         move = document.querySelector('.selected').firstElementChild.dataset.piece

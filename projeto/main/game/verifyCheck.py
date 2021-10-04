@@ -42,10 +42,10 @@ def verificarCheck(allPieces,Moves):
         col = int(move[2])
         row = int(move[3])
         color = move[1]
-         # recebe o movimento que pode ou não ser executado no final dependendo se o rei entra em cheque
-        tempAllPieces[col][row] = move
         # retira a peça na posição antiga dela
         tempAllPieces[int(Moves[0][2])][int(Moves[0][3])] = '----'
+         # recebe o movimento que pode ou não ser executado no final dependendo se o rei entra em cheque
+        tempAllPieces[col][row] = move
 
         # se eu estiver movimentando o rei a posição do meu rei muda então preciso rechecar se ele fica em cheque
         if move[0] == 'k':
