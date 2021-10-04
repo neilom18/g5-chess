@@ -1,5 +1,6 @@
 let squares = document.querySelectorAll('.quadrado')
 const chatButton = document.querySelector("#chat-message-input")
+let user_username = JSON.parse(document.getElementById('user_username').textContent);
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
 const startoooloo = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 let yourColor = ''
@@ -19,7 +20,10 @@ const receiveMessage = (e) => {
 
     // verifica se existe uma mensagem e atribui ao nosso chat log
     if(data.message){
-        document.querySelector("#chat-log").value += (data.message + '\n')
+        console.log(data)
+        if(data.user){
+        document.querySelector("#chat-log").value += (data.user + ': ' + data.message + '\n')}
+
     }
     if(data.user1){
         document.querySelector('.user1').textContent = data.user1
@@ -31,7 +35,10 @@ const receiveMessage = (e) => {
     // verficia se tem alguma função startgame que vai ir ao nosso usuario
     if(data.startGame){
         yourColor = data.userColor
-        document.querySelector("#chat-log").value += ('você está logado como'+data.user + '\n')
+        if(yourColor == "w"){
+            document.querySelector("#chat-log").value += ('você está logado como: '+data.user1 + '\n')
+        }else{
+        document.querySelector("#chat-log").value += ('você está logado como: ' + data.user2 + '\n')}
         drawPiecesStart(data.startGame)
     }
     // se não tiver movimentos apenas desenha a peça selecionada
@@ -144,8 +151,8 @@ chatButton.onclick = function(e){
     const messageInputDom = document.querySelector('#chat-message-input');
     const message = messageInputDom.value;
     webSocket.send(JSON.stringify({    
-    'command':'chat_message',
-    'message': message
+    'command':'send_message',
+    'message': message,
     }));
     messageInputDom.value = '';
 };

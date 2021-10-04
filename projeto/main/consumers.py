@@ -40,7 +40,7 @@ class RoomConsumer(WebsocketConsumer):
                 }
             )
         self.Room.save()
-        self.accept()
+        self.accept()        
 
 
     def disconnect(self, close_code):
@@ -50,13 +50,27 @@ class RoomConsumer(WebsocketConsumer):
             self.channel_name
         )
 
+    def send_message(self, data):
+        if(self.Room.user1 == str(self.scope['user'])):
+            user = self.Room.user1
+        if(self.Room.user2 == str(self.scope['user'])):
+            user = self.Room.user2
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name,
+            {
+                'type':'chat_message',
+                'data':data,
+                'user': user,
+            }
+        )
     # Receive message from room group
     def chat_message(self, event):
-        message = event['data']['message']
-
+        message = event['data']['data']['message']
+        user = event['user']
         # Send message to WebSocket
         self.send(text_data=json.dumps({
-            'message': message
+            'message': message,
+            'user': user,
         }))
 
     def start_game(self,data):
@@ -78,9 +92,6 @@ class RoomConsumer(WebsocketConsumer):
                 'message':'game has been started you are black pieces',
                 'startGame':self.Room.pieces
             }))
-   
-    def get_name(self, data):
-        self.username = data['data']['username']
 
     def select_piece(self,data):
         #recolhe a peça que foi selecionada
