@@ -1,0 +1,172 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex cdb5026..88a1804 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -55,7 +55,6 @@[m [mcoverage.xml[m
+ *.pot[m
+ [m
+ # Django stuff:[m
+[31m-.__pycache__[m
+ *.log[m
+ local_settings.py[m
+ db.sqlite3[m
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 28df8d1..e141c3a 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -23,22 +23,25 @@[m [mEm desenvolvimento[m
+ - **Regras do Jogo**[m
+ - **Jogabilidade**[m
+ - **Controles**[m
+[32m+[m[32m- **Propaganda Marketing digital**[m
+ [m
+ [m
+ ## 👨‍💻 Cargos da equipe:[m
+ - Lider **Alessandro**[m
+ [m
+[31m-- DBA **Narue e o Alessandro**[m
+[32m+[m[32m- DBA **Leandro**[m
+ [m
+[31m-- Design **Abdiel**[m
+[32m+[m[32m- Design **Haziel**[m
+ [m
+[31m-- Segurança **Alessandro**[m
+[32m+[m[32m- Segurança **leandro**[m
+ [m
+[31m-- Front-end **Leandro e Abdiel**[m
+[32m+[m[32m- Banco de Dados **Narue e Alessandro**[m
+ [m
+[31m-- Conteúdo **Leandro**[m
+[32m+[m[32m- Front **Leandro e Abdiel**[m
+ [m
+[31m-- Documentação **Rodrigo**[m
+[32m+[m[32m- Conteúdo **Rodrigo**[m
+[32m+[m
+[32m+[m[32m- Documentação **Haziel**[m
+ [m
+ ## 💻 Pré-requisitos:[m
+ - **0 Servidor de Internet**[m
+[36m@@ -108,11 +111,9 @@[m [mEm desenvolvimento[m
+ - T-Systems[m
+ - ThoughtWorks[m
+ [m
+[31m-## TO-DO:[m
+[31m- - Lista de amigos[m
+[31m- - Mais modos de jogo[m
+[31m- - Rating de jogador[m
+[31m- - Fila de procura para partida[m
+[32m+[m[32m## 🗓 Tarefas em aberto:[m
+[32m+[m[32m- Front-end[m
+[32m+[m[32m- deixar o modo multiplayer 100%[m
+ [m
+ [m
+ ## Redes Sociais Entra21[m
+[1mdiff --git a/projeto/db.sqlite3 b/projeto/db.sqlite3[m
+[1mindex a6ce7bb..c3c52a5 100644[m
+Binary files a/projeto/db.sqlite3 and b/projeto/db.sqlite3 differ
+[1mdiff --git a/projeto/main/__pycache__/__init__.cpython-37.pyc b/projeto/main/__pycache__/__init__.cpython-37.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 703ac5f..0000000[m
+Binary files a/projeto/main/__pycache__/__init__.cpython-37.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/__init__.cpython-38.pyc b/projeto/main/__pycache__/__init__.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 2049798..0000000[m
+Binary files a/projeto/main/__pycache__/__init__.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/__init__.cpython-39.pyc b/projeto/main/__pycache__/__init__.cpython-39.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 1ec55cf..0000000[m
+Binary files a/projeto/main/__pycache__/__init__.cpython-39.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/admin.cpython-37.pyc b/projeto/main/__pycache__/admin.cpython-37.pyc[m
+[1mindex 9deda55..fdff0bd 100644[m
+Binary files a/projeto/main/__pycache__/admin.cpython-37.pyc and b/projeto/main/__pycache__/admin.cpython-37.pyc differ
+[1mdiff --git a/projeto/main/__pycache__/admin.cpython-38.pyc b/projeto/main/__pycache__/admin.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex c6b7be6..0000000[m
+Binary files a/projeto/main/__pycache__/admin.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/admin.cpython-39.pyc b/projeto/main/__pycache__/admin.cpython-39.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex c050bef..0000000[m
+Binary files a/projeto/main/__pycache__/admin.cpython-39.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/apps.cpython-37.pyc b/projeto/main/__pycache__/apps.cpython-37.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex e8d6f9d..0000000[m
+Binary files a/projeto/main/__pycache__/apps.cpython-37.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/apps.cpython-38.pyc b/projeto/main/__pycache__/apps.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 25816f8..0000000[m
+Binary files a/projeto/main/__pycache__/apps.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/apps.cpython-39.pyc b/projeto/main/__pycache__/apps.cpython-39.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex b6fbccb..0000000[m
+Binary files a/projeto/main/__pycache__/apps.cpython-39.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/forms.cpython-37.pyc b/projeto/main/__pycache__/forms.cpython-37.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 03d6ed4..0000000[m
+Binary files a/projeto/main/__pycache__/forms.cpython-37.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/forms.cpython-38.pyc b/projeto/main/__pycache__/forms.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 7386155..0000000[m
+Binary files a/projeto/main/__pycache__/forms.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/forms.cpython-39.pyc b/projeto/main/__pycache__/forms.cpython-39.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 9405e97..0000000[m
+Binary files a/projeto/main/__pycache__/forms.cpython-39.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/models.cpython-37.pyc b/projeto/main/__pycache__/models.cpython-37.pyc[m
+[1mindex 51fa180..4ea1967 100644[m
+Binary files a/projeto/main/__pycache__/models.cpython-37.pyc and b/projeto/main/__pycache__/models.cpython-37.pyc differ
+[1mdiff --git a/projeto/main/__pycache__/models.cpython-38.pyc b/projeto/main/__pycache__/models.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 8aa8bde..0000000[m
+Binary files a/projeto/main/__pycache__/models.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/models.cpython-39.pyc b/projeto/main/__pycache__/models.cpython-39.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex bc82c2a..0000000[m
+Binary files a/projeto/main/__pycache__/models.cpython-39.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/urls.cpython-37.pyc b/projeto/main/__pycache__/urls.cpython-37.pyc[m
+[1mindex d151c7a..67800f6 100644[m
+Binary files a/projeto/main/__pycache__/urls.cpython-37.pyc and b/projeto/main/__pycache__/urls.cpython-37.pyc differ
+[1mdiff --git a/projeto/main/__pycache__/urls.cpython-38.pyc b/projeto/main/__pycache__/urls.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 5ba8c71..0000000[m
+Binary files a/projeto/main/__pycache__/urls.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/views.cpython-37.pyc b/projeto/main/__pycache__/views.cpython-37.pyc[m
+[1mindex 5a1e75c..c984699 100644[m
+Binary files a/projeto/main/__pycache__/views.cpython-37.pyc and b/projeto/main/__pycache__/views.cpython-37.pyc differ
+[1mdiff --git a/projeto/main/__pycache__/views.cpython-38.pyc b/projeto/main/__pycache__/views.cpython-38.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex 1f3b613..0000000[m
+Binary files a/projeto/main/__pycache__/views.cpython-38.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/__pycache__/views.cpython-39.pyc b/projeto/main/__pycache__/views.cpython-39.pyc[m
+[1mdeleted file mode 100644[m
+[1mindex e3f6622..0000000[m
+Binary files a/projeto/main/__pycache__/views.cpython-39.pyc and /dev/null differ
+[1mdiff --git a/projeto/main/admin.py b/projeto/main/admin.py[m
+[1mindex 26cb51c..45d8098 100644[m
+[1m--- a/projeto/main/admin.py[m
+[1m+++ b/projeto/main/admin.py[m
+[36m@@ -3,17 +3,15 @@[m [mfrom django.contrib.auth import admin as auth_admin[m
+ from .models import *[m
+ from .forms import UserChangeForm, UserCreationForm[m
+ [m
+[31m-[m
+ @admin.register(User)[m
+ class UserAdmin(auth_admin.UserAdmin):[m
+     form = UserChangeForm[m
+     add_form = UserCreationForm[m
+     model = User[m
+     fieldsets = auth_admin.UserAdmin.fieldsets + ([m
+[31m-        ("Extras", {"fields":("pais","room",)}),[m
+[32m+[m[32m        ("Extras", {"fields":("room","userCode")}),[m
+     )[m
+ [m
+ @admin.register(Room)[m
+ class RoomAdmin(admin.ModelAdmin):[m
+[31m-    list_display = ['code','pieces'][m
+[31m-    [m
+\ No newline at end of file[m
+[32m+[m[32m    list_display = ['code'][m
+[1mdiff --git a/projeto/main/consumers.py b/projeto/main/consumers.py[m
+[1mindex 1e599bc..aac47c2 100644[m
+[1m--- a/projeto/main/consumers.py[m
+[1m+++ b/projeto/main/consumers.py[m
+[36m@@ -1,5 +1

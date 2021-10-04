@@ -26,6 +26,9 @@
     <header>
         <a class="title" href="/">Chess</a>
     </header>
-    
+    {% for sala in salas %}
+        {{sala.sala_code}}
+        {{sala.id}}
+    {% endfor %}
 </body>
 </html>

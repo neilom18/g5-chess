@@ -1,14 +1,10 @@
 # ♟ Projeto entra21 ♟
 [![N|Solid](https://img.shields.io/npm/l/react)](https://github.com/neilom18/g5-chess/blob/main/LICENSE)
 ## O que é? 
-🕹 É um jogo de xadrez multijogador desenvolvido em Python/Django 🕹
+🕹 É um game de xadrez desenvolvido em .PY com multijogador 🕹
 
 ## 🟢 Status:
 Em desenvolvimento
-
-## Contato com desenvolvedores :
-
-- **EMAIL** : entra21chess@gmail.com
 
 ## 👨‍💼 Projeto feito por: 👨‍💼 
 - **Rodrigo**
@@ -27,23 +23,25 @@ Em desenvolvimento
 - **Regras do Jogo**
 - **Jogabilidade**
 - **Controles**
-- **Chat em partida**
+- **Propaganda Marketing digital**
 
 
 ## 👨‍💻 Cargos da equipe:
 - Lider **Alessandro**
 
-- DBA **Narue e o Alessandro**
+- DBA **Leandro**
 
-- Design **Abdiel**
+- Design **Haziel**
 
-- Segurança **Alessandro**
+- Segurança **leandro**
 
-- Front-end **Leandro e Abdiel**
+- Banco de Dados **Narue e Alessandro**
 
-- Conteúdo **Leandro**
+- Front **Leandro e Abdiel**
 
-- Documentação **Rodrigo**
+- Conteúdo **Rodrigo**
+
+- Documentação **Haziel**
 
 ## 💻 Pré-requisitos:
 - **0 Servidor de Internet**
@@ -57,81 +55,50 @@ Em desenvolvimento
 - **2 Django**
  
 - **2.1 django-admin --version : 3.2.6**
-
-- **VSCode para edição dos codigos**
  
-- **Myql**
+- **3 Myql | Postgre | Oracle**
 
-## 🔧 Dependências e Libs Instaladas: 
-- aioredis==1.3.1
-- asgiref==3.3.4
-- async-timeout==3.0.1
-- attrs==21.2.0
-- autobahn==21.3.1
-- Automat==20.2.0
-- certifi==2021.5.30
-- cffi==1.14.6
-- channels==3.0.4
-- channels-redis==3.3.0
-- charset-normalizer==2.0.4
-- constantly==15.1.0
-- cryptography==3.4.8
-- cycler==0.10.0
-- daphne==3.0.2
-- defusedxml==0.7.1
-- Django==3.2.4
-- django-allauth==0.45.0
-- django-crispy-forms==1.12.0
-- djangorestframework==3.12.4
-- hiredis==2.0.0
-- hyperlink==21.0.0
-- idna==3.2
-- incremental==21.3.0
-- kiwisolver==1.3.2
-- matplotlib==3.4.3
-- msgpack==1.0.2
-- mysql-connector==2.2.9
-- numpy==1.21.2
-- oauthlib==3.1.1
-- Pillow==8.3.1
-- pyasn1==0.4.8
-- pyasn1-modules==0.2.8
-- pycparser==2.20
-- PyJWT==2.1.0
-- PyMySQL==1.0.2
-- pyOpenSSL==20.0.1
-- pyparsing==2.4.7
-- PyQt5==5.15.4
-- PyQt5-Qt5==5.15.2
-- PyQt5-sip==12.9.0
-- python-dateutil==2.8.2
-- python3-openid==3.2.0
-- pytz==2021.1
-- requests==2.26.0
-- requests-oauthlib==1.3.0
-- service-identity==21.1.0
-- six==1.16.0
-- sqlparse==0.4.1
-- Twisted==21.7.0
-- twisted-iocpsupport==1.0.2
-- txaio==21.2.1
-- typing-extensions==3.10.0.2
-- urllib3==1.26.6
-- zope.interface==5.4.0
+## 🔧 Linguagem programada, Dependências e Libs Instaladas: 
+- Python 
 
+![NSolid](https://imgur.com/U9mLVjS.png)
 
+- Trasnferencia de arquivos grandes
 
-## 🚦 Como rodar os testes e desenvolvimento da aplicação:
-- **Faça download do repositósio github.com/neilom18/g5-chess**
-- **Instale os pré-requisitos**
-- **Windows: será necessário o download e instalação do Memurai pelo link https://www.memurai.com**
-- **Inclua as bilbiotecas e dependências com o comando pip install -r requirements.txt na raiz do projeto**
-- **Va para o diretório ..../g5-chess/projeto/ e execute o comando py manage.py runserver**
+![Nsolid](https://imgur.com/l73fcO8.png)
+
+- Conexao com o banco de dados
+
+![Nsolid](https://imgur.com/MSG8mGw.png)
+
+- Bibliteca de Syncronismo de Banco de dados na nuvem
+
+![Nsolid](https://imgur.com/feB6bM3.png)
+
+## 🚦 Como rodar a aplicação:
+- **Servidor na Nuvem com acesso WEB | 8000 funcionando ou porta 443.** 
+
+- **serviços do python + Django + xxxx funcionando.**
+
+- **Para executar o sistema faça login com o usuario XXX. no endereço de ip 200.200.200.200 e vá para a pasta \usr\local\appX**
+
+- **faça login com Adminstrador local do windows e vá para o diretorio c:\documentos\xxxx\sss**
+
+- **execute o comando: xxxx**
+
+## 🚥 Como rodar os testes:
+- **Instalar o github client**
+- **Baixar o repositorio x**
+- **Baixar todas as dependencias e bibliotecas descritas anteriomente**
+- **Baixar uma copia do banco de dados e importar com os comandos ....**
+- **Va para o diretorio X e execute : xxx**
+- **Abra o Chrome e o endereço http://localhost:8000/aplicativoX**
 
 ## 🗂 Database:
-- Na versão inicial utilizamos o gerenciador de banco de ddos SqLite.
-- Na versão de apresentação utilizamos o GDB Mysql Server na Gogole Cloud fornecido pelo nosso instrutor do projeto.
+- Ainda nao definido
 
+## 🩺 Solução de problemas:
+- Ainda nao definido
 
 ## 👨‍💻 Contribuintes:
 - Entra21 blusoft
@@ -144,11 +111,9 @@ Em desenvolvimento
 - T-Systems
 - ThoughtWorks
 
-## TO-DO:
- - Lista de amigos
- - Mais modos de jogo
- - Rating de jogador
- - Fila de procura para partida
+## 🗓 Tarefas em aberto:
+- Front-end
+- deixar o modo multiplayer 100%
 
 
 ## Redes Sociais Entra21

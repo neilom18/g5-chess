@@ -4,14 +4,30 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Chat Room</title>
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1.0" >
+    <link rel ="stylesheet" href = "{% static 'css/styleboard.css'%}">
+    <title>Chess Game</title>
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+    <h2 class='aviso'>Aguardando Adversário.</h2>
+    <!-- html do chat -->
+    <div class="chat">
+        <textarea id="chat-log" rows="30"></textarea><br>
+        <input id="chat-message-input" type="text" size="50"><br>
+        <input id="chat-message-submit" type="button" value="Send">
+    </div>
+    <!--  Tablueiro e Usuarios  -->
+    <strong class='user1'></strong>
+    <div class="upperdiv">
+        <div class="letters"></div>
+        <div class="numbers"></div>      
+    </div>
+    <strong class='user2'></strong>   
+    <div class="board"></div>
     <!-- faz um script json para que eu possa pegar o valor no javascript no front -->
     {{ room_name|json_script:"room-name" }}
+    <script src='{%static 'js/board.js'%}'></script>
     <script src='{%static 'js/websocket.js'%}'></script>
+    <script src='{%static 'js/features.js'%}'></script>
 </body>
 </html>
