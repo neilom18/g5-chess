@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -14,6 +13,10 @@
             width: 100%;
             background-color: rgb(68, 68, 68);
             border-bottom:4px solid rgb(20, 20, 20);
+        }
+
+        nav {
+            background-color: rgb(68, 68, 68);
         }
         .tap {
             width: 10%;
@@ -60,19 +63,68 @@
     </style>
     </head>
     <body>
+
+         <!-- teste -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="tap" aria-current="page" href="#">Criar Sala</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/lista_salas">Entrar Sala</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/accounts/logout/">Deslogar</a>
+                </li>
+
+            </ul>
+            </div>
+        </div>
+        </nav>
+
+        <ul class="nav flex-column">
+        <li class="nav-item">
+            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://127.0.0.1:8000/perfil">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Histórico</a>
+        </li>
+
+        </ul>
+        
+
+                  
         <header>
             <a class="title" href="/">Chess</a>
             {% if user.is_authenticated %}
-            <a class='perfil' href="perfil">perfil</a>
+            <a class='tap' href="perfil">perfil</a>
+            <a class="tap" aria-current="page" href="#">Criar Sala</a>
+            <a class="tap" href="http://127.0.0.1:8000/lista_salas">Entrar Sala</a>
+            <a class="tap" href="http://127.0.0.1:8000/accounts/logout/">Deslogar</a>
+
+
+
             <a class="sair" href="{% url 'account_logout' %}">Sair</a>
             {% else %}
             {% endif %}
         </header>
         {% if user.is_authenticated %}
-            <a href='webscoket/'><button type="button", class='tap'>Criar Sala</button></a>
+            <button type="button", class='tap'>Criar Sala</button>
             <a href="lista_salas"><button type="button", class='tap'>Entrar em salas</button></a>
-            {% for User in Users %}
-            {% endfor %}
+            
+            <a href="sala">Temporário</a>
+
+            
             
         {% else %}
             <div class="container_off">
@@ -80,11 +132,12 @@
                 <a class="entrar" href="{% url 'account_login' %}">Entrar</a>
                 <p id="msg">Não tem uma conta ainda?</p>
                 <a class="cadastro" href="{% url 'account_signup'%}">Cadastre-se</a>
-                {% for User in Users %}
-                    
-                {% endfor %}
+                
             </div>
+   
         {% endif %}
+
+
     </body>
 
 </html>
