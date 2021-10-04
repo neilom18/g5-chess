@@ -78,7 +78,6 @@ class RoomConsumer(WebsocketConsumer):
                 'message':'game has been started you are black pieces',
                 'startGame':self.Room.pieces
             }))
-
    
     def get_name(self, data):
         self.username = data['data']['username']
@@ -153,7 +152,6 @@ class RoomConsumer(WebsocketConsumer):
             self.Room.history = self.Room.history + arrayToHistory(move) +','
         else:
             self.Room.history = arrayToHistory(move)+','
-        print(self.Room.history)
         for line in piecesArray:
             for piece in line:
                 if piece == move[0]:
@@ -171,13 +169,32 @@ class RoomConsumer(WebsocketConsumer):
                                 else:
                                     move.append(piecesArray[int(move[1][2])+1][int(move[1][3])])
                                     piecesArray[int(move[1][2])+1][int(move[1][3])] = '----'
-                                print(move)
                                 EnPassant = True
-                                print(move[1])
                                 self.send(text_data=json.dumps({
                                     'message':'moved',
                                     'enPassant':move
                                 }))
+                    elif move[0][0] == 'k':
+                        movimento = int(move[1][3])
+                        if movimento == int(move[0][3])+2 or movimento == int(move[0][3])-2:
+                            if movimento == int(move[0][3])+2:
+                                move.append(piecesArray[int(move[0][2])][movimento+1])
+                                move.append('r'+move[0][1]+move[0][2]+str(movimento-1))
+                                piecesArray[int(move[0][2])][int(move[0][3])] = '----'
+                                piecesArray[int(move[0][2])][movimento-1] = move[3]
+                                piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
+                            elif movimento == int(move[0][3])-2:
+                                move.append(piecesArray[int(move[0][2])][movimento-2])
+                                move.append('r'+move[0][1]+move[0][2]+str(movimento+1))
+                                piecesArray[int(move[0][2])][int(move[0][3])] = '----'
+                                piecesArray[int(move[0][2])][movimento+1] = move[3]
+                                piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
+                            self.send(text_data=json.dumps({
+                                    'message':'moved',
+                                    'castles':move
+                                }))
+
+                            EnPassant = True
                     if EnPassant == False:
                         piecesArray[int(piece[2])][int(piece[3])] = '----'
                         piecesArray[int(move[1][2])][int(move[1][3])] = move[1]
@@ -186,7 +203,6 @@ class RoomConsumer(WebsocketConsumer):
                             'message':'moved',
                             'movePiece':move_piece
                         }))
-                        print(piecesArray[4][4])
                     self.Room.pieces = arrayToStringallPieces(piecesArray)
 
 
