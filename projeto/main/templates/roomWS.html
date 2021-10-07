@@ -10,6 +10,8 @@
 </head>
 <body>
     <h2 class='aviso'>Aguardando Adversário.</h2>
+    <p class="timer1"></p>
+    <p class="timer2"></p>
     <!-- html do chat -->
     <div class="chat">
         <textarea id="chat-log" rows="30"></textarea><br>
@@ -26,7 +28,6 @@
     <div class="board"></div>
     <!-- faz um script json para que eu possa pegar o valor no javascript no front -->
     {{ room_name|json_script:"room-name" }}
-    {{ request.user.username|json_script:"user_username" }}
     <script src='{%static 'js/board.js'%}'></script>
     <script src='{%static 'js/websocket.js'%}'></script>
     <script src='{%static 'js/features.js'%}'></script>
