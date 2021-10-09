@@ -214,6 +214,10 @@ class RoomConsumer(WebsocketConsumer):
                         mate = verificarMate(piecesArray,'b')
                     else:
                         mate = verificarMate(piecesArray,'w')
+                    if mate:
+                        self.send(text_data=json.dumps({
+                            'gameEnd':mate
+                        }))
 
     # Receive message from WebSocket
     def receive(self, text_data):

@@ -100,7 +100,7 @@ def verificarMate(allPieces,color):
                         if piecePossibleMoves[1]:
                             moves = verificarCheck(allPieces,piecePossibleMoves)
                             if len(moves) > 1:
-                                print(moves)
+                                # print(moves)
                                 chequeMate = False
                     
     return color
