@@ -1,6 +1,7 @@
 let squares = document.querySelectorAll('.quadrado')
 const chatButton = document.querySelector("#chat-message-input")
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
+const aviso = document.querySelector('.aviso').textContent;
 const startoooloo = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 let yourColor = ''
 const webSocket = new WebSocket(
@@ -27,7 +28,9 @@ const receiveMessage = (e) => {
     }
     if(data.user2){
         document.querySelector('.user2').textContent = data.user2
-        document.querySelector('.aviso').remove()
+        document.querySelector('.versus').textContent = (data.user1 + ' VS ' + data.user2)
+        if(aviso){
+        document.querySelector('.aviso').remove()}
     }    
     // verficia se tem alguma função startgame que vai ir ao nosso usuario
     if(data.startGame){
@@ -104,7 +107,15 @@ const receiveMessage = (e) => {
         const squareTomove2 = document.querySelector(`[data-id="${rookFinalPos[2]}${rookFinalPos[3]}"]`)
         squareTomove1.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${kingFinalPos[0]}${kingFinalPos[1]}.png' data-piece="${kingFinalPos}" onclick="selectPiece(this)">`
         squareTomove2.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${rookFinalPos[0]}${rookFinalPos[1]}.png' data-piece="${rookFinalPos}" onclick="selectPiece(this)">`
-}
+    }
+    if(data.gameEnd){
+        document.querySelector('.termino').classList.add('display');
+        if(yourColor === data.whoLost){
+            document.querySelector('#mesagem').textContent = 'Você Perdeu';
+        }else{
+            document.querySelector('#mesagem').textContent = 'Você Ganhou';
+        }
+    }
 }
 const selectedPieceFunction = (e) => {
     if (e.target.classList.contains('selectedSquare')){
@@ -181,6 +192,8 @@ function selectPiece(e){
         'piece':e.dataset.piece
     }))
 }
+
+// CHESS CLOCK 
 let timerId;
 let tempo1 = 600;
 let tempo2 = 600;
