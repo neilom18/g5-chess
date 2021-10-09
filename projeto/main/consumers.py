@@ -1,5 +1,6 @@
 
 # chat/consumers.py
+from datetime import datetime
 import json
 from main.game.especialMoves import EnPassant
 from main.game.game import selectPiece
@@ -8,6 +9,7 @@ from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from main.game.verifyCheck import verificarMate
 from .models import Room
+from .models import Relogio
 
 
 class RoomConsumer(WebsocketConsumer):
@@ -16,6 +18,7 @@ class RoomConsumer(WebsocketConsumer):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         self.Room,created = Room.objects.get_or_create(roomCode=self.room_group_name)
+        self.Relogio = Relogio.objects.all
         if created:
             self.Room.user1= str(self.scope['user'])
         else:
@@ -57,7 +60,8 @@ class RoomConsumer(WebsocketConsumer):
 
         # Send message to WebSocket
         self.send(text_data=json.dumps({
-            'message': message
+            'message': message,
+            'usuario':event['usuario']
         }))
 
     def start_game(self,data):
@@ -215,19 +219,25 @@ class RoomConsumer(WebsocketConsumer):
                     else:
                         mate = verificarMate(piecesArray,'w')
                     if mate:
+                        print(mate)
                         self.send(text_data=json.dumps({
-                            'gameEnd':mate
+                            'gameEnd':'acabou',
+                            'whoLost':mate
                         }))
 
     # Receive message from WebSocket
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         command = text_data_json['command']
+        usuario = str(self.scope['user'])
+        if usuario:
+            print(usuario)
         # Send message to room group
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
                 'type':command,
                 'data':text_data_json,
+                'usuario':usuario
             }
-        )
+        ) 

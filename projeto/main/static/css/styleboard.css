@@ -7,14 +7,14 @@
 
 body{
     min-height: 100vh;
-    background: radial-gradient(#837979, #135e52bd);
+    background: linear-gradient(120deg, rgba(61, 74, 80, 0.76), rgb(86, 105, 105) 1%, rgba(64, 75, 67, 0.877));
     margin: 0 auto;
 }
 .upperdiv
 {
     position: absolute;
-    top:47%;
-    left:51%;
+    top:49%;
+    left:50%;
     transform: translate(-50%, -50%);
     width: 45%;
     height: 75%;
@@ -28,15 +28,48 @@ body{
     grid-template-columns: repeat(8,1fr);
     grid-auto-rows: 12.5%;
     grid-auto-columns: 12.5%;
-    top: 47%;
+    top: 49%;
     left:49%;
     transform: translate(-50%, -50%);
     border: 5px solid black;
-    height: 65%;
-    width: 36%;
+    height: 68%;
+    width: 38%;
     
 }
-
+.termino{
+    position: absolute;
+    visibility: hidden;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    top: 36%;
+    left: 38%;
+    width: 22%;
+    height: 26%;
+    background-color: whitesmoke;
+}
+.versus{
+    background-color:rgb(117, 92, 83);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    font-family: sans-serif;
+    align-items: center;
+}
+.display{
+    z-index: calc(1);
+    visibility: visible;
+}
+#mensagem{
+    grid-row: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    font-family: sans-serif;
+    align-items: center;
+    color:rgb(173, 9, 9);
+}
 .square {
     float:left;
     height: 100%;
@@ -97,7 +130,7 @@ li {
     position: absolute;
     font-size: xx-large;
     left: 31%;
-    top: 8%;
+    top: 9%;
     font-family: sans-serif;
     margin-bottom: 0.5%;
 }
@@ -105,7 +138,7 @@ li {
     position: absolute;
     font-size: xx-large;
     left: 31%;
-    top: 86%;
+    top: 88%;
     font-family: sans-serif;
 }
 .chat{
@@ -119,17 +152,156 @@ li {
 #chat-log{
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, rgba(68, 70, 71, 0.76), rgb(118, 126, 126) 1%, rgba(68, 70, 71, 0.658));
+    background: linear-gradient(120deg, rgb(23, 24, 24), rgb(32, 32, 32) 1%,rgb(48, 49, 49));
+    color: #B2B1B0;
     border: solid black 2.5px;
 }
 
 #chat-message-input{
     width: 100%;
 }
+.timer1{
+    position: absolute;
+    top: 8%;
+    left: 63%;
+    font-size: xx-large;
+    background-color: rgba(68, 70, 71, 0.658);
+    border: solid;
+    border-color: rgb(43, 41, 41);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.timer2{
+    position: absolute;
+    top: 88%;
+    left: 63%;
+    font-size: xx-large;
+    background-color: rgba(68, 70, 71, 0.658);
+    border: solid;
+    border-color: rgb(43, 41, 41);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+@media only screen and (max-width: 1080px) {
+    .upperdiv
+    {
+        position: absolute;
+        top:49%;
+        left:47%;
+        transform: translate(-50%, -50%);
+        width: 72%;
+        height: 75%;
+        font-size: 1.5rem;
+    }
+    
+    .board
+    {
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        grid-auto-rows: 12.5%;
+        grid-auto-columns: 12.5%;
+        top: 49%;
+        left:43%;
+        transform: translate(-50%, -50%);
+        border: 5px solid black;
+        height: 68%;
+        width: 56%;
+        
+    }
+    .numbers
+    {
+        height: 96%;
+        width: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        left: 0;
+        top: 0;
+        text-align: center;
+    }   
+    .letters
+    {
+        position: absolute;
+        width: 89%;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    li {
+        list-style: none;
+    }
+    .aviso{
+        position: absolute;
+        top: 3vh;
+        left: 6vw;
+        font-size: xx-large;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .user1{
+        position: absolute;
+        font-size: xx-large;
+        left: 15%;
+        top: 9%;
+        font-family: sans-serif;
+        margin-bottom: 0.5%;
+    }
+    .user2{
+        position: absolute;
+        font-size: xx-large;
+        left: 15%;
+        top: 88%;
+        font-family: sans-serif;
+    }
+    .chat{
+        position: absolute;
+        top: 15%;
+        left: 78%;
+        width: 21%;
+        height: 50%;
+    }
+    
+    #chat-log{
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgb(23, 24, 24), rgb(32, 32, 32) 1%,rgb(48, 49, 49));
+        border: solid black 2.5px;
+    }
+    
+    #chat-message-input{
+        width: 100%;
+    }
+    .timer1{
+        position: absolute;
+        top: 8%;
+        left: 63%;
+        font-size: xx-large;
+        background-color: rgba(68, 70, 71, 0.658);
+        border: solid;
+        border-color: rgb(43, 41, 41);
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+    .timer2{
+        position: absolute;
+        top: 88%;
+        left: 63%;
+        font-size: xx-large;
+        background-color: rgba(68, 70, 71, 0.658);
+        border: solid;
+        border-color: rgb(43, 41, 41);
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+
+}
 @media only screen and (max-width: 768px) {
     body{
         min-height: 100vh;
-        background: radial-gradient(#837979, #413f46bd);
+        background: radial-gradient(#837979, #272629ce);
         margin: 0 auto;
     }
     .aviso{
@@ -139,15 +311,44 @@ li {
         font-size: large;
         font-family: Arial, Helvetica, sans-serif;
     }
+    .timer1{
+        position: absolute;
+        top: 3%;
+        left: 72vw;
+        font-size: xx-large;
+        background-color: rgba(68, 70, 71, 0.658);
+        border: solid;
+        border-color: rgb(43, 41, 41);
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+    .timer2{
+        left: 72vw;
+    }
+    .user1{
+        position: absolute;
+        font-size: x-large;
+        left: 15%;
+        top: 6%;
+        font-family: sans-serif;
+        margin-bottom: 0.5%;
+    }
+    .user2{
+        position: absolute;
+        font-size: x-large;
+        left: 15%;
+        top: 88%;
+        font-family: sans-serif;
+    }
     .upperdiv{
     position: absolute;
-    top:47%;
+    top:48%;
     left:51%;
     transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 75vh;
+    width: 82vw;
+    height: 78%;
     font-size: 1.5rem;
-}
+    }
     .board{
     position: absolute;
     display: grid;
@@ -160,12 +361,22 @@ li {
     border: 5px solid black;
     height: 70vh;
     width: 70vw;   
-}
+    }
+    .numbers
+    {
+        font-size: 0.9em;
+    }   
+    .letters
+    {
+        width: 92.5%;
+        font-size: 1em;
+    }
     .chat{
-        position: relative;
+        position: absolute;
         top: 85vh;
-        margin-top: 10vh;
-        width: 80vw;
-        height: 30vh;
+        left: 2vw;
+        margin-top: 12.5vh;
+        width: 85vw;
+        height: 25vh;
     }
   }

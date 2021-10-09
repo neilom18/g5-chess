@@ -103,6 +103,7 @@ def verificarMate(allPieces,color):
                                 # print(moves)
                                 chequeMate = False
                     
-    return color
+    if chequeMate:
+        return color
   
     
