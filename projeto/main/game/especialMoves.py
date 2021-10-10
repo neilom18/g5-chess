@@ -35,13 +35,7 @@ def Castles(allPieces,piece,history):
                                 rookLeftMoved = True
     myPossibleCastles = ''
     if isMoved == False:
-        print("aaaa")
-        for x in allPieces:
-            for y in allPieces:
-                if y[1] == 'b':
-                    print(y)
         if rookRightMoved == False:
-            print("bbb")
             if allPieces[int(piece[2])][int(piece[3])+1] == '----':
                 if allPieces[int(piece[2])][int(piece[3])+2] == '----':
                     moves = [piece]
@@ -52,7 +46,6 @@ def Castles(allPieces,piece,history):
                     if realMoves[1] == movimentosSemCheck[slice(1,4)]:
                         myPossibleCastles = piece[0]+piece[1]+piece[2]+str(int(piece[3])+2)
         if rookLeftMoved == False:
-            print("ccc")
             if allPieces[int(piece[2])][int(piece[3])-1] == '----':
                 if allPieces[int(piece[2])][int(piece[3])-2] == '----':
                     if allPieces[int(piece[2])][int(piece[3])-3] == '----':
@@ -64,7 +57,6 @@ def Castles(allPieces,piece,history):
                         if realMoves[1] == movimentosSemCheck[slice(1,4)]:
                             myPossibleCastles += piece[0]+piece[1]+piece[2]+str(int(piece[3])-2)
     return myPossibleCastles
-
 
 
 def EnPassant(piece,history):

@@ -1,6 +1,6 @@
 
 # chat/consumers.py
-from datetime import datetime
+from time import time
 import json
 from main.game.especialMoves import EnPassant
 from main.game.game import selectPiece
@@ -9,16 +9,15 @@ from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from main.game.verifyCheck import verificarMate
 from .models import Room
-from .models import Relogio
 
 
 class RoomConsumer(WebsocketConsumer):
     def connect(self):
         #por causa do all auth já estar como padrão ao executarmos o self.scope ele já nos retorna o usuário logado
+        self.time = time
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         self.Room,created = Room.objects.get_or_create(roomCode=self.room_group_name)
-        self.Relogio = Relogio.objects.all
         if created:
             self.Room.user1= str(self.scope['user'])
         else:
@@ -84,8 +83,31 @@ class RoomConsumer(WebsocketConsumer):
                 'startGame':self.Room.pieces
             }))
    
-    def get_name(self, data):
-        self.username = data['data']['username']
+    # functios inside function
+    def timerHandler(self,who):
+        # timer temporário
+            if self.Room.tempTimer == 0:
+                self.Room.tempTimer = int(self.time()%10000)
+                self.Room.save()
+                return
+            tempTimer = self.Room.tempTimer
+            if who == self.Room.user1:
+                newTempTimer = int(self.time()%10000)
+                self.Room.timer1 = self.Room.timer1 - (newTempTimer-tempTimer)
+                self.send(text_data=json.dumps({
+                    'message':'o brancho mexeu e o tempo é: {}'.format(self.Room.timer1)
+                }))
+            elif who == self.Room.user2:
+                newTempTimer = int(self.time()%10000)
+                self.Room.timer2 = self.Room.timer2 - (newTempTimer-tempTimer)
+                self.send(text_data=json.dumps({
+                    'message':'o brancho mexeu e o tempo é: {}'.format(self.Room.timer2)
+                }))
+            self.Room.save()
+            self.Room.tempTimer = int(self.time()%10000)
+
+
+
 
     def select_piece(self,data):
         #recolhe a peça que foi selecionada
@@ -138,6 +160,7 @@ class RoomConsumer(WebsocketConsumer):
             self.Room.whoMove = True
     #executa os movimentos para a peça selecionada
     def move_piece(self,data):
+        self.timerHandler(data['usuario'])
         EnPassant = False
         #actualize move for all players
         async_to_sync(self.channel_layer.group_send)(
@@ -219,19 +242,17 @@ class RoomConsumer(WebsocketConsumer):
                     else:
                         mate = verificarMate(piecesArray,'w')
                     if mate:
-                        print(mate)
                         self.send(text_data=json.dumps({
                             'gameEnd':'acabou',
                             'whoLost':mate
                         }))
+
 
     # Receive message from WebSocket
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         command = text_data_json['command']
         usuario = str(self.scope['user'])
-        if usuario:
-            print(usuario)
         # Send message to room group
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
