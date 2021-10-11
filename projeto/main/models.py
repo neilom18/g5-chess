@@ -1,3 +1,4 @@
+from enum import unique
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 import random
@@ -43,6 +44,16 @@ class Room(models.Model):
     tempTimer = models.SmallIntegerField(null=False,default=0)
     user2 = models.CharField(max_length=150,default='')
     whoMove = models.BooleanField(default=True)
+    history = models.TextField(default='')
+
+
+
+class GameHistory(models.Model):
+    RoomName = models.CharField(max_length=10,default='')
+    user1 = models.CharField(max_length=150,default='')
+    user2 = models.CharField(max_length=150,default='')
+    timer1 = models.SmallIntegerField(default=600)
+    timer2 = models.SmallIntegerField(default=600)
     history = models.TextField(default='')
 
 

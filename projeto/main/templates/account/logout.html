@@ -1,0 +1,21 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Logout" %}{% endblock %}
+
+{% block content %}
+
+
+<h1>{% trans "Sair" %}</h1>
+
+<form class="logout" id="logout_form" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <p>Você realmente deseja sair dessa conta?</p>
+  <button type="submit">{% trans "Confirmar" %} &raquo;</button>
+</form>
+{% endblock %}

@@ -69,18 +69,15 @@
         <header>
             <a class="title" href="/">Chess</a>
             {% if user.is_authenticated %}
-
+            <a class='tap' href="perfil">perfil</a>
+            <a class="nav-link" href="#">Histórico</a>
             <a class="tap" aria-current="page" href="#">Criar Sala</a>
             <a class="tap" href="http://127.0.0.1:8000/lista_salas">Entrar Sala</a>
             <a class="tap" href="http://127.0.0.1:8000/accounts/logout/">Deslogar</a>
 
 
 
-            <a class="tap" href="{% url 'account_logout' %}">Sair</a>
-
-            <a class='nav-link' href="perfil">perfil</a>
-            <a class="nav-link" href="#">Histórico</a>
-            
+            <a class="sair" href="{% url 'account_logout' %}">Sair</a>
             {% else %}
             {% endif %}
         </header>
