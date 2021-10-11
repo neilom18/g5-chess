@@ -1,0 +1,40 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sair</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+    
+  </head>
+  <body>
+    
+
+    
+
+    <div>
+      <strong>Menu:</strong>
+      <ul>
+        
+        <li><a href="/accounts/email/">Change E-mail</a></li>
+        <li><a href="/accounts/logout/">Sign Out</a></li>
+        
+      </ul>
+    </div>
+    
+<h1>Sair</h1>
+
+<p>Você tem certeza que deseja sair?</p>
+
+<form method="post" action="/accounts/logout/">
+  <input type="hidden" name="csrfmiddlewaretoken" value="hyj4PLtG1UeTW5iDm1SEqe6PGdxxO8nCr1PyFuDSJgGgHzz7YLWVybeAKz3S1H6t">
+  
+  <button type="submit">Sair</button>
+</form>
+
+
+
+    
+    
+    
+  </body>
+</html>

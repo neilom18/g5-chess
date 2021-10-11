@@ -1,0 +1,44 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Signup</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+
+</head>
+
+
+<body>
+  <div>
+    <strong>Menu:</strong>
+    <ul>
+
+      <li><a href="/accounts/login/">Sign In</a></li>
+      <li><a href="/accounts/signup/">Sign Up</a></li>
+
+    </ul>
+  </div>
+
+  <h1>Cadastro</h1>
+
+  <p>Já tem uma conta? Por favor <a href="/accounts/login/">entre</a>.</p>
+
+  <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
+    <input type="hidden" name="csrfmiddlewaretoken"
+      value="YUCBdBbomdajNskMExENmXlBkIf2v07YnP8Ed0jso8hlXUAfjm6dYrDH2bWHR50r">
+    <p><label for="id_username">Nome de usuário:</label> <input type="text" name="username"
+        placeholder="Nome de usuário" autocomplete="username" minlength="1" maxlength="150" required=""
+        id="id_username"></p>
+    <p><label for="id_email">E-mail (opcional):</label> <input type="email" name="email"
+        placeholder="Endereço de e-mail" autocomplete="email" id="id_email"></p>
+    <p><label for="id_password1">Senha:</label> <input type="password" name="password1" placeholder="Senha"
+        autocomplete="new-password" required="" id="id_password1"></p>
+    <p><label for="id_password2">Senha (novamente):</label> <input type="password" name="password2"
+        placeholder="Senha (novamente)" required="" id="id_password2"></p>
+
+    <button type="submit">Cadastro »</button>
+  </form>
+</body>
+
+</html>
