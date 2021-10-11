@@ -1,7 +1,7 @@
 let squares = document.querySelectorAll('.quadrado')
 const chatButton = document.querySelector("#chat-message-input")
-let user_username = JSON.parse(document.getElementById('user_username').textContent);
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
+const aviso = document.querySelector('.aviso').textContent;
 const startoooloo = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 let yourColor = ''
 const webSocket = new WebSocket(
@@ -15,14 +15,12 @@ const webSocket = new WebSocket(
 
 const receiveMessage = (e) => {
     const data = JSON.parse(e.data)
-    console.log(data)
-    console.log(roomName)
 
     // verifica se existe uma mensagem e atribui ao nosso chat log
     if(data.message){
         console.log(data)
-        if(data.user){
-        document.querySelector("#chat-log").value += (data.user + ': ' + data.message + '\n')}
+        if(data.usuario){
+        document.querySelector("#chat-log").value += (data.usuario + ': ' + data.message + '\n')}
 
     }
     if(data.user1){
@@ -30,7 +28,9 @@ const receiveMessage = (e) => {
     }
     if(data.user2){
         document.querySelector('.user2').textContent = data.user2
-        document.querySelector('.aviso').remove()
+        document.querySelector('.versus').textContent = (data.user1 + ' VS ' + data.user2)
+        if(aviso){
+        document.querySelector('.aviso').remove()}
     }    
     // verficia se tem alguma função startgame que vai ir ao nosso usuario
     if(data.startGame){
@@ -77,6 +77,8 @@ const receiveMessage = (e) => {
         positions = data.movePiece
         initialPos = positions[0]
         finalPos = positions[1]
+        player = finalPos[1]
+        timer(player)
         // pega a peça que sera movida
         document.querySelector(`[data-piece="${initialPos}"]`).remove()
         const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
@@ -105,7 +107,16 @@ const receiveMessage = (e) => {
         const squareTomove2 = document.querySelector(`[data-id="${rookFinalPos[2]}${rookFinalPos[3]}"]`)
         squareTomove1.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${kingFinalPos[0]}${kingFinalPos[1]}.png' data-piece="${kingFinalPos}" onclick="selectPiece(this)">`
         squareTomove2.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${rookFinalPos[0]}${rookFinalPos[1]}.png' data-piece="${rookFinalPos}" onclick="selectPiece(this)">`
-}
+    }
+    if(data.gameEnd){
+        document.querySelector('.termino').classList.add('display');
+        if(yourColor === data.whoLost){
+            document.querySelector('#mensagem').textContent = 'Você Perdeu';
+        }else{
+            document.querySelector('#mensagem').textContent = 'Você Ganhou';
+        }
+        window.clearInterval(timerId)
+    }
 }
 const selectedPieceFunction = (e) => {
     if (e.target.classList.contains('selectedSquare')){
@@ -151,7 +162,7 @@ chatButton.onclick = function(e){
     const messageInputDom = document.querySelector('#chat-message-input');
     const message = messageInputDom.value;
     webSocket.send(JSON.stringify({    
-    'command':'send_message',
+    'command':'chat_message',
     'message': message,
     }));
     messageInputDom.value = '';
@@ -163,7 +174,6 @@ function drawPiecesStart(allPieces){
     allPiecesArray = allPieces.split(' ')
     for (let i = 0; i<allPiecesArray.length;i++){
         const piece = allPiecesArray[i]
-        var color
         // apenas para inverter as cores no front já que os números acabam invertidos
         pieceCoord = piece[2]+piece[3]
         squares = Array.from(squares)
@@ -182,4 +192,53 @@ function selectPiece(e){
         'command':'select_piece',
         'piece':e.dataset.piece
     }))
+}
+
+// CHESS CLOCK 
+let timerId;
+let tempo1 = 600;
+let tempo2 = 600;
+let min1 = Math.floor(tempo1 / 60);
+let min2 = Math.floor(tempo2 / 60);
+let sec1 = tempo1 % 60;
+let sec2 = tempo2 % 60;
+let timer1 = document.querySelector('.timer1');
+let timer2 = document.querySelector('.timer2');
+function timer(player){
+    console.log(min2, sec2)
+    if(timerId){
+        clearInterval(timerId)
+    }
+    timerId = setInterval(() => {  
+        if (player == 'b'){
+            if(sec1 == 60 || sec1 == 0){
+                min1 = min1 - 1
+                sec1 = 60
+            }
+            sec1 = sec1 - 1
+            // Verifica se o tempo acabou
+            if (sec1 == 0 && min1 == 0) {
+                clearInterval(timerId);
+                console.log('oia la se perdeu')
+            }
+            strMin1 = min1.toString();
+            strSec1 = sec1.toString();
+            timer1.textContent = strMin1 + ':' + strSec1
+        }
+        else{
+            if(sec2 == 60 || sec2 == 0){
+                min2 = min2 - 1
+                sec2 = 60
+            }
+            sec2 = sec2 - 1
+            // Verifica se o tempo acabou
+            if (sec2 == 0 && min2 == 0) {
+                clearInterval(timerId);
+                console.log('oia la se perdeu')
+            }
+            strMin2 = min2.toString();
+            strSec2 = sec2.toString();
+            timer2.textContent = strMin2 + ':' + strSec2
+        }
+    }, 1000); // Executa a cada (1000 milliseconds = 1 second).
 }

@@ -68,3 +68,42 @@ def verificarCheck(allPieces,Moves):
             possibleMoves.append(move)
     return possibleMoves
 
+def verificarMate(allPieces,color):
+    chequeMate = False
+    cheque = False
+    commands = {
+        'p':Pawn,
+        'c':cavalo,
+        'b':bispo,
+        'q':queen,
+        'r':torre,
+        'k':king
+        }
+    kingPos = findKing(allPieces,color)
+    for line in allPieces:
+        for piece in line:
+            if piece != '----':
+                if piece[1] != color:
+                    piecePossibleMoves = commands[piece[0]](allPieces,piece)
+                    if piecePossibleMoves:
+                        for pieceMove in piecePossibleMoves[1]:
+                            if pieceMove[2] == kingPos[2]:
+                                if pieceMove[3] == kingPos[3]:
+                                    cheque = True
+    if cheque == True:
+        chequeMate = True
+        for line in allPieces:
+            for piece in line:
+                if piece[1] == color:
+                    piecePossibleMoves = commands[piece[0]](allPieces,piece)
+                    if piecePossibleMoves:
+                        if piecePossibleMoves[1]:
+                            moves = verificarCheck(allPieces,piecePossibleMoves)
+                            if len(moves) > 1:
+                                # print(moves)
+                                chequeMate = False
+                    
+    if chequeMate:
+        return color
+  
+    

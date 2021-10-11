@@ -1,3 +1,2 @@
-from django.test import TestCase
-
-# Create your tests here.
+from time import time
+print(int(time()% 10000))

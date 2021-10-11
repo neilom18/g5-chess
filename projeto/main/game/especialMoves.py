@@ -1,3 +1,4 @@
+
 from main.game.ConvertStringArray import historyToArray
 from main.game.verifyCheck import verificarCheck
 
@@ -20,7 +21,6 @@ def Castles(allPieces,piece,history):
         if moved:
             if piece[0] == moved[0]:
                 if piece[1] == moved[1]:  
-                    print(piece)  
                     isMoved = True
     #checa se as torres já se mexeram
     if isMoved == False:
@@ -30,24 +30,22 @@ def Castles(allPieces,piece,history):
                     if rookMoved[1] == piece[1]:
                         if rookMoved[3]=='7':
                             rookRightMoved = True   
-                    elif rookMoved[3] == '0':
-                        if rookMoved[1] == piece[1]:
-                            rookLeftMoved = True
+                        elif rookMoved[3] == '0':
+                            if rookMoved[1] == piece[1]:
+                                rookLeftMoved = True
     myPossibleCastles = ''
-    if piece[3] == 4 and piece[2] == 0:
-        if rookLeftMoved == False:
-            if allPieces[0][5] == '----':
-                if allPieces[0][6] == '----':
+    if isMoved == False:
+        if rookRightMoved == False:
+            if allPieces[int(piece[2])][int(piece[3])+1] == '----':
+                if allPieces[int(piece[2])][int(piece[3])+2] == '----':
                     moves = [piece]
                     moves.append(piece[0]+piece[1]+piece[2]+str(int(piece[3])+1))
                     moves.append(piece[0]+piece[1]+piece[2]+str(int(piece[3])+2))
                     realMoves = [piece,moves]
                     movimentosSemCheck = verificarCheck(allPieces,realMoves)
-                    print(realMoves[1])
-                    print(movimentosSemCheck[slice(1,4)])
                     if realMoves[1] == movimentosSemCheck[slice(1,4)]:
                         myPossibleCastles = piece[0]+piece[1]+piece[2]+str(int(piece[3])+2)
-        if rookRightMoved == False:
+        if rookLeftMoved == False:
             if allPieces[int(piece[2])][int(piece[3])-1] == '----':
                 if allPieces[int(piece[2])][int(piece[3])-2] == '----':
                     if allPieces[int(piece[2])][int(piece[3])-3] == '----':
@@ -56,16 +54,12 @@ def Castles(allPieces,piece,history):
                         moves.append(piece[0]+piece[1]+piece[2]+str(int(piece[3])-2))
                         realMoves = [piece,moves]
                         movimentosSemCheck = verificarCheck(allPieces,realMoves)
-                        print(realMoves[1])
-                        print(movimentosSemCheck[slice(1,4)])
                         if realMoves[1] == movimentosSemCheck[slice(1,4)]:
                             myPossibleCastles += piece[0]+piece[1]+piece[2]+str(int(piece[3])-2)
     return myPossibleCastles
 
 
-
 def EnPassant(piece,history):
-    print(history)
     lastMove = history[len(history) -2]  #exemplo de resultado pb64pb44
     #checa se o último movimento foi de um peão
     if lastMove[4] == 'p':
@@ -78,5 +72,3 @@ def EnPassant(piece,history):
             if color =='b':
                 if piece[2] == '3':
                     return(piece[0]+piece[1]+str(int(lastMove[6])-1)+lastMove[7])
-
-
