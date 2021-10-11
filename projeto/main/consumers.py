@@ -8,7 +8,7 @@ from main.game.ConvertStringArray import arrayToStringallPieces, arrayTostring, 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from main.game.verifyCheck import verificarMate
-from .models import Room
+from .models import Room,GameHistory
 
 
 class RoomConsumer(WebsocketConsumer):
@@ -246,7 +246,16 @@ class RoomConsumer(WebsocketConsumer):
                             'gameEnd':'acabou',
                             'whoLost':mate
                         }))
-
+                        if self.Room.user1 == str(self.scope['user']):
+                            print("assasasasasa")
+                            historico = GameHistory.objects.create(RoomName=str(self.room_name),
+                            user1=self.Room.user1,
+                            user2=self.Room.user2,
+                            timer1=self.Room.timer1,
+                            timer2=self.Room.timer2,
+                            history=self.Room.history)
+                            print(historico)
+                            historico.save()
 
     # Receive message from WebSocket
     def receive(self, text_data):
