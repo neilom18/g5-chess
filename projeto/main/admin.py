@@ -16,6 +16,9 @@ class UserAdmin(auth_admin.UserAdmin):
 class RoomAdmin(admin.ModelAdmin):
     list_display = ['roomCode']
 
+@admin.register(GameHistory)
+class GameHistoryAdmin(admin.ModelAdmin):
+    list_display=['RoomName']
 @admin.register(Relogio)
 class RelogioAdmin(admin.ModelAdmin):
     list_display = ['time','zero']

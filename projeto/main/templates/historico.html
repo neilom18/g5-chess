@@ -1,3 +1,5 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="pt-br"></html>
     <head>
@@ -9,6 +11,19 @@
     <body>
 
         <h1>PÁGINA COM OS HISTÓRICOS DE PARTIDA</h1>
-
+        {%for partida in partidas%}
+            {%for jogo in partida%}
+                <script  class='singleGame' type='application/json'>
+                {{jogo.user1}},{{jogo.user2}},{{jogo.timer1}},{{jogo.timer2}}{{jogo.history}}{{jogo.RoomName}}
+                </script>   
+            {%endfor%}
+        {%endfor%}
+    
+        <script src='{%static 'js/historico.js'%}'></script>
     </body>
 </html>
+
+
+
+
+{{ room_name|json_script:"room-name" }}

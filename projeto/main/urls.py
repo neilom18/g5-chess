@@ -11,6 +11,7 @@ urlpatterns = [
     path('perfil', views.perfil, name = 'perfil'),
     path('webscoket/',views.homeWS),
     path('room/<str:room_name>/',views.room, name='room'),
+    path('historico',views.historico,name='historico')
 
 
 ]

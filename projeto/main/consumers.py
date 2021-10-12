@@ -14,14 +14,22 @@ from .models import Room,GameHistory
 class RoomConsumer(WebsocketConsumer):
     def connect(self):
         #por causa do all auth já estar como padrão ao executarmos o self.scope ele já nos retorna o usuário logado
+
         self.time = time
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         self.Room,created = Room.objects.get_or_create(roomCode=self.room_group_name)
         if created:
             self.Room.user1= str(self.scope['user'])
+            self.historico,created = GameHistory.objects.get_or_create(RoomName=str(self.room_name),
+                user1=self.Room.user1,
+                user2=self.Room.user2,
+                timer1=self.Room.timer1,
+                timer2=self.Room.timer2,
+                history='')
         else:
             if self.Room.user1 == str(self.scope['user']):
+
                 pass
             else:
                 self.Room.user2 = str(self.scope['user'])
@@ -247,15 +255,14 @@ class RoomConsumer(WebsocketConsumer):
                             'whoLost':mate
                         }))
                         if self.Room.user1 == str(self.scope['user']):
-                            print("assasasasasa")
-                            historico = GameHistory.objects.create(RoomName=str(self.room_name),
-                            user1=self.Room.user1,
-                            user2=self.Room.user2,
-                            timer1=self.Room.timer1,
-                            timer2=self.Room.timer2,
-                            history=self.Room.history)
-                            print(historico)
-                            historico.save()
+                            self.historico.history = self.Room.history
+                            self.historico.timer1 = self.Room.timer1
+                            self.historico.timer2 - self.Room.timer2
+                            print(self.historico.id)
+                            self.historico.save()
+                            print(self.historico.id)
+                            print(self.historico.save)
+
 
     # Receive message from WebSocket
     def receive(self, text_data):
