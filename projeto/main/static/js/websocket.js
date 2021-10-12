@@ -196,6 +196,8 @@ function selectPiece(e){
 
 // CHESS CLOCK 
 let timerId;
+let count1 = 10;
+let count2 = 10;
 let tempo1 = 600;
 let tempo2 = 600;
 let min1 = Math.floor(tempo1 / 60);
@@ -205,7 +207,6 @@ let sec2 = tempo2 % 60;
 let timer1 = document.querySelector('.timer1');
 let timer2 = document.querySelector('.timer2');
 function timer(player){
-    console.log(min2, sec2)
     if(timerId){
         clearInterval(timerId)
     }
@@ -215,30 +216,36 @@ function timer(player){
                 min1 = min1 - 1
                 sec1 = 60
             }
-            sec1 = sec1 - 1
+            if(count1 == 10){
+                sec1 = sec1 - 1
+                count1 = 0;
+            }
             // Verifica se o tempo acabou
             if (sec1 == 0 && min1 == 0) {
                 clearInterval(timerId);
-                console.log('oia la se perdeu')
             }
             strMin1 = min1.toString();
             strSec1 = sec1.toString();
             timer1.textContent = strMin1 + ':' + strSec1
+            count1 = count1 + 1;
         }
         else{
             if(sec2 == 60 || sec2 == 0){
                 min2 = min2 - 1
                 sec2 = 60
             }
-            sec2 = sec2 - 1
+            if(count2 == 10){
+                sec2 = sec2 - 1
+                count2 = 0;
+            }
             // Verifica se o tempo acabou
             if (sec2 == 0 && min2 == 0) {
                 clearInterval(timerId);
-                console.log('oia la se perdeu')
             }
             strMin2 = min2.toString();
             strSec2 = sec2.toString();
             timer2.textContent = strMin2 + ':' + strSec2
+            count2 = count2 + 1
         }
-    }, 1000); // Executa a cada (1000 milliseconds = 1 second).
+    }, 100); // Executa a cada (100 milliseconds = 1 second).
 }
