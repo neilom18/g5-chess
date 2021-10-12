@@ -1,38 +1,57 @@
 body {
     margin:0;
-    background-color: rgb(107, 107, 107);
+    background-color: rgba(0, 0, 0, 0.76);
 }
-header {
+.nav{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 12%;
     width: 100%;
-    background-color: rgb(68, 68, 68);
+    background: rgb(29, 28, 27);
     border-bottom:4px solid rgb(20, 20, 20);
 }
+
 .tap {
-    width: 10%;
-    height: 50px;
-    margin: 100px;
-    padding: 15px;
-    background-color: rgb(120, 120, 110);
+    padding-inline: 10px;
+    height: 35%;
+    font-size: 2em;
+    text-decoration: none;
+    color: rgb(142, 189, 49);
+    background-color: rgba(68, 70, 71, 0.658);
+    bottom: 0;
+}
+#deslogar{
+    color: rgb(184, 0, 0);
 }
 .container_off {
-    margin:10%;
     margin-top: 5%;
     font-size: 350%;
     text-align: center;
 }
 .off {
-    font-size: 150%;
+    position: relative;
+    margin-top: 6.5%;
+    font-size: 2em;
+    color: #d8d8d8;
 }
 .entrar {
+    font-size: 1.5em;
     text-decoration: none;
-    color: black;
-    
+    color: rgb(9, 214, 118);
 }
 .title {
-    padding: 10px;
-    font-size: 300%;
+    font-size: 3em;
+    font-family: sans-serif;
     text-decoration: none;
-    color: black;
+    background: #121FCF;
+    background: -webkit-linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    background: -moz-linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    background: linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .sair {
     text-decoration: none;
@@ -42,16 +61,28 @@ header {
     font-size:200%
 }
 #msg {
-    font-size: 40%;
+    font-size: 1em;
     margin-bottom: 0%;
+    color: #B2B1B0;
 }
 .cadastro {
-    font-size: 50%;
-   
+    font-size: 1.1em;
+    color: rgba(9, 255, 30, 0.596);   
 }
-.container_off1 {
-    margin:10%;
-    margin-top: 5%;
-    font-size: 350%;
-    text-align: center;
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px;
+    font-size: 2.5em;
+}
+
+#historico{
+    text-decoration: none;
+    padding: 5px;
+    color:black;
+    background: rgba(31, 24, 39, 0.548);
+    border: solid rgb(26, 0, 8) 4px;
 }

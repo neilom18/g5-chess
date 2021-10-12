@@ -1,94 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <title>Home</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <style> 
-        body {
-            margin:0;
-            background-color: rgb(107, 107, 107);
-        }
-        header {
-            width: 100%;
-            background-color: rgb(68, 68, 68);
-            border-bottom:4px solid rgb(20, 20, 20);
-        }
-
-        nav {
-            background-color: rgb(68, 68, 68);
-        }
-        .tap {
-            width: 10%;
-            height: 50px;
-            margin: 100px;
-			padding: 15px;
-            background-color: rgb(120, 120, 110);
-        }
-        .container_off {
-            margin:10%;
-            margin-top: 5%;
-            font-size: 350%;
-            text-align: center;
-        }
-        .off {
-            font-size: 150%;
-        }
-        .entrar {
-            text-decoration: none;
-            color: black;
-            
-        }
-        .title {
-            padding: 10px;
-            font-size: 300%;
-            text-decoration: none;
-            color: black;
-        }
-        .sair {
-            text-decoration: none;
-            margin-left: 70%;
-            padding-top: 1px;
-            color:black;
-            font-size:200%
-        }
-        #msg {
-            font-size: 40%;
-            margin-bottom: 0%;
-        }
-        .cadastro {
-            font-size: 50%;
-           
-        }
-    </style>
+        <link rel ="stylesheet" href = "{% static 'css/style.css'%}">
     </head>
     <body>
             
 
                   
         <header>
-            <a class="title" href="/">Chess</a>
-            {% if user.is_authenticated %}
-            <a class='tap' href="perfil">perfil</a>
-            <a class="nav-link" href="#">Histórico</a>
-            <a class="tap" aria-current="page" href="#">Criar Sala</a>
-            <a class="tap" href="http://127.0.0.1:8000/lista_salas">Entrar Sala</a>
-            <a class="tap" href="http://127.0.0.1:8000/accounts/logout/">Deslogar</a>
+            <div class="nav">
+                <a class="title" href="/">OnlyChess</a>
+                {% if user.is_authenticated %}
+                <a class='tap' href="/perfil">Perfil</a>
+                <a class="tap" aria-current="page" href="webscoket">Criar Sala / Entrar Sala</a>
+                <a class="tap" id="deslogar" href="http://127.0.0.1:8000/accounts/logout/">Deslogar</a>
+            </div>
 
-
-
-            <a class="sair" href="{% url 'account_logout' %}">Sair</a>
             {% else %}
             {% endif %}
         </header>
-        {% if user.is_authenticated %}
-            <button type="button", class='tap'>Criar Sala</button>
-            <a href="lista_salas"><button type="button", class='tap'>Entrar em salas</button></a>
-            
-            <a href="sala">Temporário</a>
-
-            
-            
+        {% if user.is_authenticated %} 
         {% else %}
             <div class="container_off">
                 <h1 class="off">Você está desconectado</h1>
