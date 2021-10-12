@@ -196,6 +196,27 @@ li {
     padding-left: 1vw;
     padding-right: 1vw;
 }
+/*------ Historico ------*/
+.buttons{
+    position: absolute;
+    left: 75%;
+    top: 80%;
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+    height: 5%;
+}
+.pogresso{
+    width: 50%;
+    height: 100%;
+    border: solid 1px black;
+}
+.retrocesso{
+    width: 50%;
+    height: 100%;
+    border: solid 1px black;
+}
+/*-----------------------*/
 @media only screen and (max-width: 1080px) {
     .upperdiv
     {

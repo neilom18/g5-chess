@@ -23,7 +23,7 @@ const receiveMessage = (e) => {
         document.querySelector("#chat-log").value += (data.usuario + ': ' + data.message + '\n')}
 
     }
-    if(data.user1){
+    if(data.user1){ 
         document.querySelector('.user1').textContent = data.user1
     }
     if(data.user2){

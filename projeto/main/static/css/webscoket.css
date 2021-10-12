@@ -1,5 +1,5 @@
 body{
-    min-height: 100vh;
+min-height: 100vh;
 display: flex;
 align-items: center;
 flex-direction: column;
@@ -12,4 +12,18 @@ strong{
 #room-name-submit{
     font-size: 1.2em;
     width: 10%;
+}
+.title {
+    position: absolute;
+    top: 3%;
+    left: 4%;
+    font-size: 3em;
+    font-family: sans-serif;
+    text-decoration: none;
+    background: #121FCF;
+    background: -webkit-linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    background: -moz-linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    background: linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

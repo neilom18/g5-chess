@@ -5,11 +5,10 @@
     <head>
         
         <meta charset="UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        
+        <link rel ="stylesheet" href = "{% static 'css/styleboard.css'%}">
     </head>
     <body>
-
+        <a id="sair" href="/">OnlyChess</a>
         <h1>PÁGINA COM OS HISTÓRICOS DE PARTIDA</h1>
         {%for partida in partidas%}
             {%for jogo in partida%}
@@ -18,7 +17,16 @@
                 </script>   
             {%endfor%}
         {%endfor%}
-    
+        <div class="upperdiv">
+            <div class="letters"></div>
+            <div class="numbers"></div>      
+        </div>
+        <div class="board"></div>
+        <div class="buttons">
+            <button class="retrocesso"><<<<</button>
+            <button class="pogresso">>>>></button>
+        </div>
+        <script src='{%static 'js/board.js'%}'></script>
         <script src='{%static 'js/historico.js'%}'></script>
     </body>
 </html>
