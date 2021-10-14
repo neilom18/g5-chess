@@ -17,10 +17,14 @@ allGames = allGames.map((item) => {
 
 
 teste = ['testinho','testinho2','520','510','pw14pw34','pb65pb45','pw13pw33','pb66pb46','qw03qw47','asdfwq']
+lista = document.querySelector('.lista');
+let partida;
+let teste = ['testinho','testinho2','b','520','510','pw14pw34','pb65pb45','pw13pw33','pb66pb46','qw03qw47','asdfwq'];
+let teste1 = ['testinho','testinho2','b','519','500','pw14pw34','pb65pb55','pw13pw33','pb66pb46','qw03qw47','asdsdqeqr'];
+let testeMaior = [teste,teste1];
 let squares = document.querySelectorAll('.quadrado');
 let rButton = document.querySelector('.pogresso');
-let lButton = document.querySelector('.retrocesso')
-let count = 4; 
+let lButton = document.querySelector('.retrocesso');
 const allPieces = 'rw00 cw01 bw02 qw03 kw04 bw05 cw06 rw07 pw10 pw11 pw12 pw13 pw14 pw15 pw16 pw17 pb60 pb61 pb62 pb63 pb64 pb65 pb66 pb67 rb70 cb71 bb72 qb73 kb74 bb75 cb76 rb77'
 
 function drawPiecesStart(allPieces){
@@ -39,30 +43,61 @@ function drawPiecesStart(allPieces){
         })
     }
 }
-drawPiecesStart(allPieces);
-let initialPos;
-let finalPos;
-rButton.onclick = function(e){
-    let tamanho = teste.length - 1;
-    if(tamanho > count){
-        let positions = teste[count]
-        finalPos = positions.slice(4,8)
-        initialPos = positions.slice(0,4);
-        document.querySelector(`[data-piece="${initialPos}"]`).remove()
-        const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
-        squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}">`
-        count = count + 1
+// Cria a lista de partidas
+let code;
+listaPartidas =  testeMaior.map((item) => {
+    code = item.length - 1
+    return `<div class="partidas"data-id="${item[code]}">
+    </div>`   
+}).join('')
+lista.innerHTML = listaPartidas;
+for(let i = 0; i < testeMaior.length;i++){
+    let partidaUnica = testeMaior[i]
+    code = partidaUnica.length - 1;
+    if(partidaUnica[2] === 'b'){
+        partidaUnica[2] = 'Preto Ganhou'
+    }else{
+        partidaUnica[2] = 'Branco Ganhou'
+    }
+    for(let j = 0; j < 3;j++){
+        document.querySelector(`[data-id="${partidaUnica[code]}"]`).innerHTML += `<h4>${partidaUnica[j]}</h4>`
     }
 }
-lButton.onclick = function(e){
-    tamanho = 4
-    if(tamanho < count){
-        count = count - 1
-        let positions = teste[count]
-        finalPos = positions.slice(4,8)
-        initialPos = positions.slice(0,4);
-        document.querySelector(`[data-piece="${finalPos}"]`).remove()
-        const squareToMove = document.querySelector(`[data-id="${initialPos[2]}${initialPos[3]}"]`)
-        squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${initialPos[0]}${initialPos[1]}.png' data-piece="${initialPos}">`
+partida = document.querySelectorAll('.partidas');
+lista.onmouseover = function(e){
+    let count = 5;
+    for(let count99 = 0; count99 < testeMaior.length;count99++){
+        partida[count99].onclick = function(e){
+            drawPiecesStart(allPieces);
+            let imagen = document.querySelectorAll('img');
+            console.log(imagen)
+            rButton.onclick = function(e){
+                let tamanho = testeMaior[count99].length - 1;
+                if(tamanho > count){
+                    let positions = testeMaior[count99][count]
+                    finalPos = positions.slice(4,8)
+                    initialPos = positions.slice(0,4);
+                    document.querySelector(`[data-piece="${initialPos}"]`).remove()
+                    const squareToMove = document.querySelector(`[data-id="${finalPos[2]}${finalPos[3]}"]`)
+                    squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${finalPos[0]}${finalPos[1]}.png' data-piece="${finalPos}">`
+                    count = count + 1
+                }
+            }
+            let initialPos = '';
+            let finalPos = '';
+            lButton.onclick = function(e){
+                tamanho = 5;
+                if(tamanho < count){
+                    count = count - 1
+                    let positions = testeMaior[count99][count]
+                    finalPos = positions.slice(4,8);
+                    initialPos = positions.slice(0,4);
+                    document.querySelector(`[data-piece="${finalPos}"]`).remove()
+                    const squareToMove = document.querySelector(`[data-id="${initialPos[2]}${initialPos[3]}"]`)
+                    squareToMove.innerHTML = `<img class='square' src='../../main/static/imagens/piece/${initialPos[0]}${initialPos[1]}.png' data-piece="${initialPos}">`
+                }
+            }
+        }
     }
 }
+

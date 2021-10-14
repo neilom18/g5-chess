@@ -8,7 +8,7 @@
         <link rel ="stylesheet" href = "{% static 'css/styleboard.css'%}">
     </head>
     <body>
-        <a id="sair" href="/">OnlyChess</a>
+        <a id="sair" href="/">PyChess</a>
         <h1>PÁGINA COM OS HISTÓRICOS DE PARTIDA</h1>
         {%for partida in partidas%}
             {%for jogo in partida%}
@@ -17,6 +17,7 @@
                 </script>   
             {%endfor%}
         {%endfor%}
+        <div class="lista"></div>
         <div class="upperdiv">
             <div class="letters"></div>
             <div class="numbers"></div>      

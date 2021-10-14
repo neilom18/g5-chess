@@ -9,30 +9,6 @@
   </head>
   <body>
     {% block body %}
-
-    {% if messages %}
-    <div>
-      <strong></strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    <div class="menu">
-      <strong>Menu</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Trocar E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Deslogar</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Entrar</a></li>
-        <li><a href="{% url 'account_signup' %}">Cadastrar</a></li>
-        {% endif %}
-      </ul>
-    </div>
     <div class="center">{% block content %}</div>
     {% endblock %}
     {% endblock %}

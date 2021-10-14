@@ -11,8 +11,6 @@ from .models import GameHistory, Room, User
 def home(request):
     return render(request, 'home.html')
 
-def lista_salas(request):
-    return render(request, 'lista_salas.html')
 
 def historico(request):
     return render(request, 'historico.html')

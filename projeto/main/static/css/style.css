@@ -1,6 +1,7 @@
 body {
     margin:0;
     background-color: rgba(0, 0, 0, 0.76);
+    min-height: 100vh;
 }
 .nav{
     position: absolute;
@@ -12,6 +13,7 @@ body {
     width: 100%;
     background: rgb(29, 28, 27);
     border-bottom:4px solid rgb(20, 20, 20);
+    margin-bottom: 2%;
 }
 
 .tap {
@@ -45,10 +47,10 @@ body {
     font-size: 3em;
     font-family: sans-serif;
     text-decoration: none;
-    background: #121FCF;
-    background: -webkit-linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
-    background: -moz-linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
-    background: linear-gradient(to top left, #121FCF 0%, #47B6FF 28%, #BB00FF 58%, #FF05D5 72%, #CF1512 100%);
+    background: #00CF07;
+    background: -webkit-linear-gradient(to top right, #00CF07 0%, #0DFFDF 40%, #00BACF 52%, #00D5FF 62%, #0083CF 75%);
+    background: -moz-linear-gradient(to top right, #00CF07 0%, #0DFFDF 40%, #00BACF 52%, #00D5FF 62%, #0083CF 75%);
+    background: linear-gradient(to top right, #00CF07 0%, #0DFFDF 40%, #00BACF 52%, #00D5FF 62%, #0083CF 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -72,10 +74,10 @@ body {
 .container{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px;
-    margin: 10px;
     font-size: 2.5em;
+    margin-top: 8%;
 }
 
 #historico{
