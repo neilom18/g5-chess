@@ -39,16 +39,17 @@ class Room(models.Model):
     roomCode = models.CharField(max_length=10,default=uuid.uuid4(),unique=True,)
     pieces = models.CharField(max_length=len(start), blank=False,null=False, default=start)
     user1 = models.CharField(max_length=150,default='')
+    user2 = models.CharField(max_length=150,default='')
     timer1 = models.SmallIntegerField(default=600)
     timer2 = models.SmallIntegerField(default=600)
     tempTimer = models.SmallIntegerField(null=False,default=0)
-    user2 = models.CharField(max_length=150,default='')
     whoMove = models.BooleanField(default=True)
     history = models.TextField(default='')
 
 
 
 class GameHistory(models.Model):
+    result = models.CharField(max_length=1,default='')
     RoomName = models.CharField(max_length=10,default='')
     user1 = models.CharField(max_length=150,default='')
     user2 = models.CharField(max_length=150,default='')

@@ -105,5 +105,24 @@ def verificarMate(allPieces,color):
                     
     if chequeMate:
         return color
+    elif cheque == False:
+        print(verificarEmpate(allPieces,color))
+def verificarEmpate(allPieces,color):
+    commands = {
+    'p':Pawn,
+    'c':cavalo,
+    'b':bispo,
+    'q':queen,
+    'r':torre,
+    'k':king
+    }
+    for line in allPieces:
+        for piece in line:
+            if piece[1] == color:
+                piecePossibleMoves = commands[piece[0]](allPieces,piece)
+                if piecePossibleMoves:
+                    if piecePossibleMoves[1]:
+                        return False
+    return 'd'
   
     

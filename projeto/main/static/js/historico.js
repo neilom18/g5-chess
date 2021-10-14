@@ -1,3 +1,21 @@
+
+
+let allGames = document.querySelectorAll('.singleGame')
+
+allGames = Array.from(allGames)
+
+allGames = allGames.map((item) => {
+    let singleGame = item.textContent.split(' ')
+    let gameArray = 'error'
+    singleGame.filter((item) => {
+        if (item !== '' && item!== ' ' && item!== '\n'){
+            gameArray = item.slice(0,item.length-1)
+        }
+    })
+    return gameArray
+})
+
+
 teste = ['testinho','testinho2','520','510','pw14pw34','pb65pb45','pw13pw33','pb66pb46','qw03qw47','asdfwq']
 let squares = document.querySelectorAll('.quadrado');
 let rButton = document.querySelector('.pogresso');

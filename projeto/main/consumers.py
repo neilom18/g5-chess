@@ -27,12 +27,13 @@ class RoomConsumer(WebsocketConsumer):
                 timer1=self.Room.timer1,
                 timer2=self.Room.timer2,
                 history='')
+            self.Room.save()
         else:
             if self.Room.user1 == str(self.scope['user']):
-
                 pass
             else:
                 self.Room.user2 = str(self.scope['user'])
+                self.Room.save()
             
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
@@ -72,6 +73,7 @@ class RoomConsumer(WebsocketConsumer):
         }))
 
     def start_game(self,data):
+        self.Room,created = Room.objects.get_or_create(roomCode=self.room_group_name)
         usuario1 = data['data']['user1']
         usuario2 = data['data']['user2']
         if usuario1 == str(self.scope['user']):
@@ -113,9 +115,29 @@ class RoomConsumer(WebsocketConsumer):
                 }))
             self.Room.save()
             self.Room.tempTimer = int(self.time()%10000)
+            if self.Room.timer1 <= 0:
+                 async_to_sync(self.channel_layer.group_send)(
+                    self.room_group_name,
+                    {
+                        'type':'game_end',
+                        'data':'w'
+                    }
+                )
+            elif self.Room.timer2 <= 0:
+                async_to_sync(self.channel_layer.group_send)(
+                    self.room_group_name,
+                    {
+                        'type':'game_end',
+                        'data':'b'
+                    }
+                )
 
 
-
+    def timer_end(self):
+        if self.Room.user1 == str(self.scope['user']):
+            self.timerHandler(self,self.Room.user1)
+        elif self.Room.user2 == str(self.scope['user']):
+            self.timerHandler(self,self.Room.user2)
 
     def select_piece(self,data):
         #recolhe a peça que foi selecionada
@@ -255,13 +277,33 @@ class RoomConsumer(WebsocketConsumer):
                             'whoLost':mate
                         }))
                         if self.Room.user1 == str(self.scope['user']):
-                            self.historico.history = self.Room.history
-                            self.historico.timer1 = self.Room.timer1
-                            self.historico.timer2 - self.Room.timer2
-                            print(self.historico.id)
-                            self.historico.save()
-                            print(self.historico.id)
-                            print(self.historico.save)
+                            async_to_sync(self.channel_layer.group_send)(
+                                self.room_group_name,
+                                {
+                                    'type':'game_end',
+                                    'data':mate
+                                }
+                            )
+
+
+    def game_end(self,data):
+        loser = data['data']
+        winner = ''
+        if loser == 'w':
+            winner = 'b'
+        elif loser == 'b':
+            winner = 'w'
+        else:
+            winner = 'd'
+        if self.Room.user1 == str(self.scope['user']):
+            self.historico.result = winner
+            self.historico.user1 = self.Room.user1
+            self.historico.user2 = self.Room.user2
+            self.historico.history = self.Room.history
+            self.historico.timer1 = self.Room.timer1
+            self.historico.timer2 - self.Room.timer2
+            self.historico.save()
+
 
 
     # Receive message from WebSocket

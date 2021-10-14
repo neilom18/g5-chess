@@ -247,5 +247,16 @@ function timer(player){
             timer2.textContent = strMin2 + ':' + strSec2
             count2 = count2 + 1
         }
+        if (min1 <= 0 && sec1 <= 0){
+            webSocket.send(JSON.stringify({    
+                'command':'timer_end'
+                }));
+        }
+        if (min2 <= 0 && sec2 <= 0){
+            webSocket.send(JSON.stringify({    
+                'command':'timer_end'
+                }));
+        }
+
     }, 100); // Executa a cada (100 milliseconds = 1 second).
 }
