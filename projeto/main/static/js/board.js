@@ -49,7 +49,6 @@ for (let i = 0; i < 8; i++) {
 tabuleiro = lista.map((item) => {
         return `<div class="quadrado square ${item[3]}"data-id="${item[1]}${item[2]}">
         </div>`        
-    
 }).join('')
 board.innerHTML = tabuleiro
 
