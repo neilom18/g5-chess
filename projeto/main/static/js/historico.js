@@ -9,19 +9,18 @@ allGames = allGames.map((item) => {
     let gameArray = 'error'
     singleGame.filter((item) => {
         if (item !== '' && item!== ' ' && item!== '\n'){
-            gameArray = item.slice(0,item.length-1)
+            gameArray = item.slice(0,item.length-1).split(',')
         }
     })
     return gameArray
 })
 
-
-teste = ['testinho','testinho2','520','510','pw14pw34','pb65pb45','pw13pw33','pb66pb46','qw03qw47','asdfwq']
+console.log(allGames)
 lista = document.querySelector('.lista');
 let partida;
 let teste = ['testinho','testinho2','b','520','510','pw14pw34','pb65pb45','pw13pw33','pb66pb46','qw03qw47','asdfwq'];
 let teste1 = ['testinho','testinho2','b','519','500','pw14pw34','pb65pb55','pw13pw33','pb66pb46','qw03qw47','asdsdqeqr'];
-let testeMaior = [teste,teste1];
+let testeMaior = allGames
 let squares = document.querySelectorAll('.quadrado');
 let rButton = document.querySelector('.pogresso');
 let lButton = document.querySelector('.retrocesso');
@@ -70,7 +69,7 @@ lista.onmouseover = function(e){
         partida[count99].onclick = function(e){
             drawPiecesStart(allPieces);
             let imagen = document.querySelectorAll('img');
-            console.log(imagen)
+            console.log(imagen) 
             rButton.onclick = function(e){
                 let tamanho = testeMaior[count99].length - 1;
                 if(tamanho > count){
