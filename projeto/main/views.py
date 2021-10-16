@@ -5,7 +5,7 @@ from .serializers import RoomSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import GameHistory, Room, User
-
+from django.db.models import Q
 
 #Template request
 def home(request):
@@ -31,9 +31,8 @@ def room(request, room_name):
 def historico(request):
     if request.user.is_authenticated:
         username = str(request.user.username)
-        print(username)
-        historicos = GameHistory.objects.filter(user1=username)
-        historicos = historicos,GameHistory.objects.filter(user2=username)
+        historicos = GameHistory.objects.filter(~Q(history=''),user1=username)
+        historicos = historicos,GameHistory.objects.filter(~Q(history=''),user2=username)
         return render(request,'historico.html',{'partidas':historicos})
     else:
         return HttpResponse('<h4>Tu não ta logado animal</h4>')
