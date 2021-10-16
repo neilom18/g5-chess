@@ -64,12 +64,13 @@ for(let i = 0; i < testeMaior.length;i++){
 }
 partida = document.querySelectorAll('.partidas');
 lista.onmouseover = function(e){
-    let count = 5;
+    let count = 4;
     for(let count99 = 0; count99 < testeMaior.length;count99++){
         partida[count99].onclick = function(e){
             drawPiecesStart(allPieces);
             let imagen = document.querySelectorAll('img');
             console.log(imagen) 
+            //função para avançar as jogadas
             rButton.onclick = function(e){
                 let tamanho = testeMaior[count99].length - 1;
                 if(tamanho > count){
@@ -84,8 +85,9 @@ lista.onmouseover = function(e){
             }
             let initialPos = '';
             let finalPos = '';
+            // Função para voltar as jogadas
             lButton.onclick = function(e){
-                tamanho = 5;
+                tamanho = 4;
                 if(tamanho < count){
                     count = count - 1
                     let positions = testeMaior[count99][count]

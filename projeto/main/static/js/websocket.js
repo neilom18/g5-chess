@@ -212,11 +212,11 @@ function timer(player){
     }
     timerId = setInterval(() => {  
         if (player == 'b'){
-            if(sec1 == 60 || sec1 == 0){
-                min1 = min1 - 1
-                sec1 = 60
-            }
             if(count1 == 10){
+                if(sec1 == 0){
+                    min1 = min1 - 1
+                    sec1 = 60;
+                }
                 sec1 = sec1 - 1
                 count1 = 0;
             }
@@ -230,11 +230,11 @@ function timer(player){
             count1 = count1 + 1;
         }
         else{
-            if(sec2 == 60 || sec2 == 0){
-                min2 = min2 - 1
-                sec2 = 60
-            }
             if(count2 == 10){
+                if(sec2 == 0){
+                    min2 = min2 - 1
+                    sec2 = 60;
+                }
                 sec2 = sec2 - 1
                 count2 = 0;
             }
