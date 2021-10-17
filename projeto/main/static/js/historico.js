@@ -18,8 +18,6 @@ allGames = allGames.map((item) => {
 console.log(allGames)
 lista = document.querySelector('.lista');
 let partida;
-let teste = ['testinho','testinho2','b','520','510','pw14pw34','pb65pb45','pw13pw33','pb66pb46','qw03qw47','asdfwq'];
-let teste1 = ['testinho','testinho2','b','519','500','pw14pw34','pb65pb55','pw13pw33','pb66pb46','qw03qw47','asdsdqeqr'];
 let testeMaior = allGames
 let squares = document.querySelectorAll('.quadrado');
 let rButton = document.querySelector('.pogresso');
@@ -46,8 +44,8 @@ function drawPiecesStart(allPieces){
 let code;
 listaPartidas =  testeMaior.map((item) => {
     code = item.length - 1
-    return `<div class="partidas"data-id="${item[code]}">
-    </div>`   
+    return `<a class="partidas" href='#' data-id="${item[code]}">
+    </a>`   
 }).join('')
 lista.innerHTML = listaPartidas;
 for(let i = 0; i < testeMaior.length;i++){
@@ -59,7 +57,13 @@ for(let i = 0; i < testeMaior.length;i++){
         partidaUnica[2] = 'Branco Ganhou'
     }
     for(let j = 0; j < 3;j++){
-        document.querySelector(`[data-id="${partidaUnica[code]}"]`).innerHTML += `<h4>${partidaUnica[j]}</h4>`
+        if(j == 0){
+            document.querySelector(`[data-id="${partidaUnica[code]}"]`).innerHTML += `<h4>${partidaUnica[j]}<span class='branco'> 0</span></h4>` 
+        }else if(j == 1){
+            document.querySelector(`[data-id="${partidaUnica[code]}"]`).innerHTML += `<h4>${partidaUnica[j]}<box class='preto'>   0</box></h4>`
+        }else{
+            document.querySelector(`[data-id="${partidaUnica[code]}"]`).innerHTML += `<h4>${partidaUnica[j]}</h4>`
+        }
     }
 }
 partida = document.querySelectorAll('.partidas');
@@ -68,13 +72,14 @@ lista.onmouseover = function(e){
     for(let count99 = 0; count99 < testeMaior.length;count99++){
         partida[count99].onclick = function(e){
             drawPiecesStart(allPieces);
-            let imagen = document.querySelectorAll('img');
-            console.log(imagen) 
+            let chat = document.querySelector('#chat-log');
+            let allPositions = testeMaior[count99].slice(4,8)
+            console.log(allPositions)
             //função para avançar as jogadas
             rButton.onclick = function(e){
                 let tamanho = testeMaior[count99].length - 1;
                 if(tamanho > count){
-                    let positions = testeMaior[count99][count]
+                    let positions = testeMaior[count99][count];
                     finalPos = positions.slice(4,8)
                     initialPos = positions.slice(0,4);
                     document.querySelector(`[data-piece="${initialPos}"]`).remove()
@@ -83,6 +88,8 @@ lista.onmouseover = function(e){
                     count = count + 1
                 }
             }
+            chat.textContent = allPositions
+            console.log(chat.textContent)
             let initialPos = '';
             let finalPos = '';
             // Função para voltar as jogadas

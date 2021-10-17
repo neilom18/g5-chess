@@ -7,9 +7,8 @@
         <meta charset="UTF-8">
         <link rel ="stylesheet" href = "{% static 'css/styleboard.css'%}">
     </head>
-    <body>
-        <a id="sair" href="/">PyChess</a>
-        <h1>PÁGINA COM OS HISTÓRICOS DE PARTIDA</h1>
+    <body class="body">
+        <a id="sairHistorico" href="/">PyChess</a>
         {%for partida in partidas%}
             {%for jogo in partida%}
                 <script  class='singleGame' type='application/json'>
@@ -23,6 +22,9 @@
             <div class="numbers"></div>      
         </div>
         <div class="board"></div>
+        <div class='chat-moves'>
+            <textarea id="chat-log" rows="30"></textarea><br>
+        </div>
         <div class="buttons">
             <button class="retrocesso"><<<<</button>
             <button class="pogresso">>>>></button>

@@ -197,25 +197,87 @@ li {
     padding-right: 1vw;
 }
 /*------ Historico ------*/
+.body{
+    background: linear-gradient(120deg, rgb(58, 63, 63),rgba(40, 51, 53, 0.877));
+}
+.chat-moves{
+    position: absolute;
+    left: 71%;
+    top: 18%;
+    width: 20%;
+    height: 55%;
+}
+#sairHistorico{
+    margin: 10px;  
+    font-size: 3em;
+    font-family: sans-serif;
+    text-decoration: none;
+    background: #00CF07;
+    background: -webkit-linear-gradient(to top right, #00CF07 0%, #0DFFDF 40%, #00BACF 52%, #00D5FF 62%, #0083CF 75%);
+    background: -moz-linear-gradient(to top right, #00CF07 0%, #0DFFDF 40%, #00BACF 52%, #00D5FF 62%, #0083CF 75%);
+    background: linear-gradient(to top right, #00CF07 0%, #0DFFDF 40%, #00BACF 52%, #00D5FF 62%, #0083CF 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .buttons{
     position: absolute;
-    left: 75%;
-    top: 80%;
+    left: 71%;
+    top: 77%;
     display: flex;
     flex-direction: row;
-    width: 10%;
-    height: 5%;
+    width: 17%;
+    height: 6%;
+    border: solid 2px black;
+}
+.lista{
+    display: grid;
+    padding: 10px;
+    background: rgba(51, 46, 46, 0.658);
+    border: solid 1px rgb(34, 34, 34);
+    width: 20vw;
+    margin: 1%;
+}
+.partidas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    background: rgb(43, 41, 41);
+    border: solid 1px rgb(95, 95, 95);
+    color: white;
+    text-decoration: none;
+}
+h4{
+    margin: 2px;
 }
 .pogresso{
     width: 50%;
     height: 100%;
     border: solid 1px black;
+    background: aquamarine;
+    color: forestgreen;
+    font-size: 1.8em;
 }
 .retrocesso{
     width: 50%;
     height: 100%;
     border: solid 1px black;
+    background: tomato;
+    color: darkred;
+    font-size: 1.8em;
 }
+.branco{
+    margin-left: 10px;
+    border: solid 2px black;
+    background: white;
+}
+.preto{
+    margin-left: 10px;
+    border: solid 2px rgb(31, 31, 31);
+    background: black;
+    color: black;
+}
+
 /*-----------------------*/
 @media only screen and (max-width: 1080px) {
     .upperdiv
