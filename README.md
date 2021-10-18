@@ -60,7 +60,6 @@ Em desenvolvimento
 
 - **VSCode para edição dos codigos**
  
-- **Myql**
 
 ## 🔧 Dependências e Libs Instaladas: 
 - aioredis==1.3.1
@@ -125,24 +124,13 @@ Em desenvolvimento
 - **Faça download do repositósio github.com/neilom18/g5-chess**
 - **Instale os pré-requisitos**
 - **Windows: será necessário o download e instalação do Memurai pelo link https://www.memurai.com**
+- **Linux: será necessário o download e instalação do Redis pelo link https://www.redis.com**
 - **Inclua as bilbiotecas e dependências com o comando pip install -r requirements.txt na raiz do projeto**
 - **Va para o diretório ..../g5-chess/projeto/ e execute o comando py manage.py runserver**
 
 ## 🗂 Database:
 - Na versão inicial utilizamos o gerenciador de banco de ddos SqLite.
 - Na versão de apresentação utilizamos o GDB Mysql Server na Gogole Cloud fornecido pelo nosso instrutor do projeto.
-
-
-## 👨‍💻 Contribuintes:
-- Entra21 blusoft
-- Proway
-- Ambev Tech
-- Datainfo
-- Capgemini
-- Senior
-- Serasa
-- T-Systems
-- ThoughtWorks
 
 ## TO-DO:
  - Lista de amigos
