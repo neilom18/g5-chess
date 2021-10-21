@@ -13,7 +13,7 @@ Em desenvolvimento
 - LINKEDINS:
 - - Alessandro -> https://www.linkedin.com/in/alessandro-elias-b08b85206/
 - - Abdiel -> https://www.linkedin.com/in/abdieldeathayde/
-- - Lendro -> https://www.linkedin.com/in/leandro-pamplona-schmitt-78285421a/
+- - Leandro -> https://www.linkedin.com/in/leandro-pamplona-schmitt-78285421a/
 - - Naruê -> https://www.linkedin.com/in/naruê-gonçalves-santos-4410a821b/
 - - Rodrigo -> Pendente.
 
