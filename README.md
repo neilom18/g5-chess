@@ -46,7 +46,7 @@ Em desenvolvimento
 
 - Segurança **Alessandro**
 
-- Front-end **Leandro e Abdiel**
+- Front-end **Leandro**
 
 - Conteúdo **Leandro**
 
@@ -151,7 +151,4 @@ Em desenvolvimento
 [<img src="https://imgur.com/x05Sa7O.png" width=115 > <br> <sub> Instagram </sub>](https://www.instagram.com/entra21.blusoft/) | [<img src="https://imgur.com/b3Q0EjI.png" width=115 > <br> <sub> Facebook </sub>](https://www.facebook.com/entra21.blusoft) | [<img src="https://imgur.com/70aSGri.png" width=115 > <br> <sub> Site </sub>](https://www.entra21.com.br/) |
 | :---: | :---: | :---: |
 
-- **imagem demonstrativa sobre o jogo**
-
-[![N|Solid](https://imgur.com/DEqLHqH.gif)](https://github.com/neilom18/g5-chess/blob/main/README.md)
 
